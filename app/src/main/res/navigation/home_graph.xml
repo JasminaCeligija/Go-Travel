@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/home"
+    tools:ignore="UnusedNavigation">
+
+    <include app:graph="@navigation/login_graph" />
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.gotravel.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_tripDetailsFragment"
+            app:destination="@id/tripDetailsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <!--<argument
+            android:name="selectedTrip"
+            app:argType="com.example.gotravel.common.model.Trip" /> -->
+    </fragment>
+    <fragment
+        android:id="@+id/about_me"
+        android:name="com.example.gotravel.presentation.AboutMeFragment"
+        android:label="fragment_about_me"
+        tools:layout="@layout/fragment_about_me" />
+
+    <fragment
+        android:id="@+id/tripDetailsFragment"
+        android:name="com.example.gotravel.presentation.trip_details.TripDetailsFragment"
+        android:label="fragment_trip_details"
+        tools:layout="@layout/fragment_trip_details" />
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.example.gotravel.presentation.FavouritesFragment"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites" />
+    <fragment
+        android:id="@+id/contact_us"
+        android:name="com.example.gotravel.presentation.ContactUsFragment"
+        android:label="fragment_contact_us"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/about_us"
+        android:name="com.example.gotravel.presentation.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+
+</navigation>

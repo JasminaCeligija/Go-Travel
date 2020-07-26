@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">GoTravel</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Intro screen -->
+    <string name="intro_title">GoTravel</string>
+    <string name="intro_quote">Limits are for those who need them</string>
+
+    <!-- Navigation bar -->
+    <string name="menu_contact_us">Contact Us</string>
+    <string name="menu_favourites">Favourites</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_about_us">About Us</string>
+    <string name="menu_about_me">About me</string>
+
+    <!-- Trip details -->
+
+    <string name="trip_details_see_trip_plan">See trip plan</string>
+    <string name="trip_details_read_reviews">Read reviews</string>
+    <string name="trip_details_ask_a_question">Ask a question</string>
+    <string name="trip_details_save_trip">Save trip</string>
+    <string name="trip_details_price">Price: $%1$s</string>
+    <string name="trip_details_about_trip">About trip</string>
+    <string name="trip_details_days">days</string>
+    <string name="trip_details_button_text">Book now</string>
+
+</resources>
