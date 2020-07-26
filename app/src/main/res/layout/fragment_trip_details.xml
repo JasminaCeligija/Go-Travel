@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.05109489" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_right"
@@ -25,8 +25,8 @@
         android:id="@+id/image_back"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_arrow_left"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:letterSpacing="0.02"
@@ -50,71 +50,13 @@
         android:id="@+id/image_share"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_share"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/image_star_1"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_star_filled"
-        app:layout_constraintEnd_toStartOf="@+id/image_star_2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/text_name" />
-
-    <ImageView
-        android:id="@+id/image_star_2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
-        android:src="@drawable/ic_star_filled"
-        app:layout_constraintBottom_toBottomOf="@+id/image_star_1"
-        app:layout_constraintEnd_toStartOf="@+id/image_star_3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_star_1"
-        app:layout_constraintTop_toTopOf="@+id/image_star_1" />
-
-    <ImageView
-        android:id="@+id/image_star_3"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
-        android:src="@drawable/ic_star_filled"
-        app:layout_constraintBottom_toBottomOf="@+id/image_star_2"
-        app:layout_constraintEnd_toStartOf="@+id/image_star_4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_star_2"
-        app:layout_constraintTop_toTopOf="@+id/image_star_2" />
-
-    <ImageView
-        android:id="@+id/image_star_4"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
-        android:src="@drawable/ic_star_filled"
-        app:layout_constraintBottom_toBottomOf="@+id/image_star_3"
-        app:layout_constraintEnd_toStartOf="@+id/image_star_5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_star_3"
-        app:layout_constraintTop_toTopOf="@+id/image_star_3" />
-
-    <ImageView
-        android:id="@+id/image_star_5"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="4dp"
-        android:src="@drawable/ic_star_outlined"
-        app:layout_constraintBottom_toBottomOf="@+id/image_star_4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_star_4"
-        app:layout_constraintTop_toTopOf="@+id/image_star_4" />
+    <include layout="@layout/layout_four_stars" />
 
     <TextView
         android:id="@+id/text_start_date"
@@ -162,8 +104,9 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/button_book_now"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
@@ -176,7 +119,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager_trip_images"
                 android:layout_width="0dp"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:paddingStart="45dp"
                 android:paddingEnd="45dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -185,9 +128,9 @@
 
             <ImageButton
                 android:id="@+id/button_see_trip_plan"
-                android:layout_width="70dp"
+                android:layout_width="60dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="8dp"
                 android:backgroundTint="@color/white"
                 android:elevation="10dp"
                 android:scaleType="centerInside"
@@ -214,17 +157,17 @@
 
             <ImageButton
                 android:id="@+id/button_read_reviews"
-                android:layout_width="70dp"
+                android:layout_width="60dp"
                 android:layout_height="0dp"
                 android:backgroundTint="@color/white"
                 android:elevation="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_reviews"
-                app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+                app:layout_constraintBottom_toBottomOf="@+id/button_ask_a_question"
+                app:layout_constraintEnd_toStartOf="@+id/button_ask_a_question"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/button_see_trip_plan"
-                app:layout_constraintTop_toTopOf="@+id/imageButton3" />
+                app:layout_constraintTop_toTopOf="@+id/button_ask_a_question" />
 
             <TextView
                 android:id="@+id/text_read_reviews"
@@ -238,8 +181,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/button_read_reviews" />
 
             <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="70dp"
+                android:id="@+id/button_ask_a_question"
+                android:layout_width="60dp"
                 android:layout_height="0dp"
                 android:backgroundTint="@color/white"
                 android:elevation="10dp"
@@ -258,23 +201,23 @@
                 android:gravity="center"
                 android:text="@string/trip_details_ask_a_question"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-                app:layout_constraintStart_toStartOf="@+id/imageButton3"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+                app:layout_constraintEnd_toEndOf="@+id/button_ask_a_question"
+                app:layout_constraintStart_toStartOf="@+id/button_ask_a_question"
+                app:layout_constraintTop_toBottomOf="@+id/button_ask_a_question" />
 
             <ImageButton
                 android:id="@+id/button_save_trip"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/white"
                 android:elevation="10dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_heart_outlined"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageButton3"
+                app:layout_constraintStart_toEndOf="@+id/button_ask_a_question"
                 app:layout_constraintTop_toBottomOf="@+id/text_days" />
 
             <TextView

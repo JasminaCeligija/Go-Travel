@@ -13,6 +13,7 @@
         android:name="com.example.gotravel.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+
         <action
             android:id="@+id/action_home_to_tripDetailsFragment"
             app:destination="@id/tripDetailsFragment"
@@ -24,6 +25,7 @@
             android:name="selectedTrip"
             app:argType="com.example.gotravel.common.model.Trip" /> -->
     </fragment>
+
     <fragment
         android:id="@+id/about_me"
         android:name="com.example.gotravel.presentation.AboutMeFragment"
@@ -34,7 +36,40 @@
         android:id="@+id/tripDetailsFragment"
         android:name="com.example.gotravel.presentation.trip_details.TripDetailsFragment"
         android:label="fragment_trip_details"
-        tools:layout="@layout/fragment_trip_details" />
+        tools:layout="@layout/fragment_trip_details" >
+
+        <action
+            android:id="@+id/action_tripDetailsFragment_to_readReviewsFragment"
+            app:destination="@id/readReviewsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+
+        <action
+            android:id="@+id/action_tripDetailsFragment_to_seeTripPlanFragment"
+            app:destination="@id/seeTripPlanFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+
+        <action
+            android:id="@+id/action_tripDetailsFragment_to_askAQuestionFragment"
+            app:destination="@id/askAQuestionFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_tripDetailsFragment_to_bookNowFragment"
+            app:destination="@id/bookNowFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
     <fragment
         android:id="@+id/favourites"
         android:name="com.example.gotravel.presentation.FavouritesFragment"
@@ -50,5 +85,25 @@
         android:name="com.example.gotravel.presentation.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/readReviewsFragment"
+        android:name="com.example.gotravel.presentation.trip_details.readreviews.ReadReviewsFragment"
+        android:label="fragment_read_reviews"
+        tools:layout="@layout/fragment_read_reviews" />
+    <fragment
+        android:id="@+id/seeTripPlanFragment"
+        android:name="com.example.gotravel.presentation.trip_details.SeeTripPlanFragment"
+        android:label="fragment_see_trip_plan"
+        tools:layout="@layout/fragment_see_trip_plan" />
+    <fragment
+        android:id="@+id/askAQuestionFragment"
+        android:name="com.example.gotravel.presentation.trip_details.AskAQuestionFragment"
+        android:label="fragment_ask_a_question"
+        tools:layout="@layout/fragment_ask_a_question" />
+    <fragment
+        android:id="@+id/bookNowFragment"
+        android:name="com.example.gotravel.presentation.BookNowFragment"
+        android:label="fragment_book_now"
+        tools:layout="@layout/fragment_book_now" />
 
 </navigation>

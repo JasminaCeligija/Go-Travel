@@ -52,7 +52,7 @@ class HomeViewModel : ViewModel() {
                 "26.08.2020.",
                 "12",
                 "3115",
-                R.drawable.img_dummy,
+                R.drawable.dummy,
                 TravelMode.Airplane
             ),
             Trip(
@@ -63,7 +63,7 @@ class HomeViewModel : ViewModel() {
                 "19.07.2020",
                 "7",
                 "1000",
-                R.drawable.img_dummy,
+                R.drawable.dummy,
                 TravelMode.Bus
             ),
             Trip(
@@ -74,7 +74,7 @@ class HomeViewModel : ViewModel() {
                 "20.11.2020.",
                 "10",
                 "2500",
-                R.drawable.img_dummy,
+                R.drawable.dummy,
                 TravelMode.Bus
             ),
             Trip(
@@ -85,7 +85,7 @@ class HomeViewModel : ViewModel() {
                 "15.12.2020.",
                 "3",
                 "500",
-                R.drawable.img_dummy,
+                R.drawable.dummy,
                 TravelMode.Airplane
             ),
             Trip(
@@ -96,7 +96,7 @@ class HomeViewModel : ViewModel() {
                 "30.12.2020.",
                 "5",
                 "750",
-                R.drawable.img_dummy,
+                R.drawable.dummy,
                 TravelMode.Airplane
             )
         )

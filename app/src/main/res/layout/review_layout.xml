@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_review_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_review"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/white_rounded_shape"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/container_user_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:elevation="12dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_user"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_user_1" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/text_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/include"
+            app:layout_constraintStart_toEndOf="@+id/container_user_image"
+            app:layout_constraintTop_toTopOf="@+id/container_user_image" />
+
+        <TextView
+            android:id="@+id/text_createdAt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_username"
+            app:layout_constraintStart_toStartOf="@+id/text_username"
+            app:layout_constraintTop_toBottomOf="@+id/text_username" />
+
+        <TextView
+            android:id="@+id/text_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_createdAt" />
+
+        <TextView
+            android:id="@+id/text_num_of_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/dark"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_heart"
+            app:layout_constraintStart_toEndOf="@+id/image_heart"
+            app:layout_constraintTop_toTopOf="@+id/image_heart" />
+
+        <TextView
+            android:id="@+id/text_num_of_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/dark"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_comment"
+            app:layout_constraintStart_toEndOf="@+id/image_comment"
+            app:layout_constraintTop_toTopOf="@+id/image_comment" />
+
+        <ImageView
+            android:id="@+id/image_heart"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_content"
+            app:layout_constraintTop_toBottomOf="@+id/text_content"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_heart_filled" />
+
+        <ImageView
+            android:id="@+id/image_comment"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_likes"
+            app:layout_constraintStart_toEndOf="@+id/text_likes"
+            app:layout_constraintTop_toTopOf="@+id/text_likes"
+            app:srcCompat="@drawable/ic_comment_filled" />
+
+        <TextView
+            android:id="@+id/text_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/read_reviews_likes"
+            android:textColor="@color/dark"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_num_of_likes"
+            app:layout_constraintStart_toEndOf="@+id/text_num_of_likes"
+            app:layout_constraintTop_toTopOf="@+id/text_num_of_likes" />
+
+        <TextView
+            android:id="@+id/text_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/read_reviews_comments"
+            android:textColor="@color/dark"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_num_of_comments"
+            app:layout_constraintStart_toEndOf="@+id/text_num_of_comments"
+            app:layout_constraintTop_toTopOf="@+id/text_num_of_comments" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/layout_three_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ToggleButton
+        android:id="@+id/button_write_comment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/comment_toggle_button_selector"
+        android:checked="false"
+        android:elevation="7dp"
+        android:scaleType="centerInside"
+        android:stateListAnimator="@null"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/container_review"
+        app:layout_constraintEnd_toStartOf="@+id/button_like_comment"
+        app:layout_constraintTop_toBottomOf="@+id/container_review" />
+
+    <ToggleButton
+        android:id="@+id/button_like_comment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/heart_toggle_button_selector"
+        android:checked="false"
+        android:elevation="7dp"
+        android:scaleType="centerInside"
+        android:stateListAnimator="@null"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/container_review"
+        app:layout_constraintEnd_toEndOf="@+id/container_review"
+        app:layout_constraintTop_toBottomOf="@+id/container_review" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/white_rounded_shape"
+        android:elevation="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_write_comment">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_comment_layout"
+            style="@style/Widget.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:hint="@string/read_reviews_comment_hint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text_post_comment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_comment"
+                style="@style/Widget.TextInputLayout.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="top|start"
+                android:inputType="textCapSentences|textMultiLine"
+                android:scrollbars="vertical"
+                android:singleLine="false" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/text_post_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:padding="10dp"
+            android:text="@string/read_reviews_post_comment"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -44,6 +44,7 @@ class TripDetailsFragment : Fragment() {
         } ?: run {
             showErrorDialog()
         }
+        //findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToReadReviewsFragment())
 
         viewModel = ViewModelProvider(this).get(TripDetailsViewModel::class.java)
 
@@ -96,10 +97,30 @@ class TripDetailsFragment : Fragment() {
 
     private fun setListeners() {
 
+        button_see_trip_plan.setOnClickListener {
+            findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToSeeTripPlanFragment())
+        }
+
+        button_read_reviews.setOnClickListener {
+            findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToReadReviewsFragment())
+        }
+
+        button_ask_a_question.setOnClickListener {
+            findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToAskAQuestionFragment())
+        }
+
+        button_book_now.setOnClickListener {
+            findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToBookNowFragment())
+        }
+
         button_save_trip.setOnClickListener {
             if (button_save_trip.drawable.constantState == ContextCompat.getDrawable(requireContext(), R.drawable.ic_heart_outlined)?.constantState)
                 button_save_trip.setImageResource(R.drawable.ic_heart_filled_red)
             else button_save_trip.setImageResource(R.drawable.ic_heart_outlined)
+        }
+
+        image_back.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 
@@ -112,11 +133,7 @@ class TripDetailsFragment : Fragment() {
             is TripPlanViewState.Error -> {
             }
             is TripPlanViewState.Content -> {
-                Toast.makeText(
-                    context,
-                    "eiofoiewjf" + state.tripPlanViewState.tripDays.size,
-                    Toast.LENGTH_SHORT
-                ).show()
+
                 // (recycler_view_trip_days.adapter as TripPlanAdapter).data = state.tripPlanViewState.tripDays
             }
         }
@@ -151,12 +168,6 @@ class TripDetailsFragment : Fragment() {
         view_pager_trip_images.setPageTransformer(transformer)
     }
 
-    fun dummy(tripDay: TripDay) {
-        Toast.makeText(
-            context, "kliii" +
-                    "", Toast.LENGTH_SHORT
-        ).show()
-    }
 
     //TODO: get images from api
     private fun getImageResources(): List<Int> {

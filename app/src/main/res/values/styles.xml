@@ -9,18 +9,12 @@
         <!--<item name="android:fontFamily">@font/asap</item> -->
     </style>
 
-       <!--<style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
-        <item name="android:background">@color/silver</item>
-    </style> -->
-
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="android:windowFullscreen">true</item>
-
     </style>
 
     <style name="RegularButton" parent="Widget.MaterialComponents.Button">
@@ -33,6 +27,32 @@
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">0.1</item>
     </style>
+
+    <style name="Widget.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="android:background">@color/white</item>
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextColor">@color/dark</item>
+    </style>
+
+    <style name="Widget.TextInputLayout.Password" parent="Widget.TextInputLayout">
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/dark</item>
+    </style>
+
+    <style name="Widget.TextInputLayout.EditText">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+
+
+
+
 
 
 </resources>

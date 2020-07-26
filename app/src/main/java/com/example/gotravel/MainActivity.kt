@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setUpBottomNavMenu(navController)
-     //   setUpActionBar(navController)
+        //   setUpActionBar(navController)
 
     }
 
@@ -31,8 +31,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when(destination.id) {
-                R.id.tripDetailsFragment, R.id.contact_us-> hideBottomNavigationBar()
+            when (destination.id) {
+                R.id.tripDetailsFragment,
+                R.id.seeTripPlanFragment,
+                R.id.readReviewsFragment,
+                R.id.askAQuestionFragment,
+                R.id.bookNowFragment -> hideBottomNavigationBar()
                 else -> showBottomNavigationBar()
             }
         }
@@ -59,8 +63,6 @@ class MainActivity : AppCompatActivity() {
     private fun showBottomNavigationBar() {
         bottom_navigation.visibility = View.VISIBLE
     }
-
-
 
 
     /*override fun onSupportNavigateUp(): Boolean {

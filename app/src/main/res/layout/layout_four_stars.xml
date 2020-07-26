@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/fragment_trip_details">
+
+    <ImageView
+        android:id="@+id/image_star_1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_star_filled"
+        app:layout_constraintEnd_toStartOf="@+id/image_star_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/text_name" />
+
+    <ImageView
+        android:id="@+id/image_star_2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_star_filled"
+        app:layout_constraintBottom_toBottomOf="@+id/image_star_1"
+        app:layout_constraintEnd_toStartOf="@+id/image_star_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_star_1"
+        app:layout_constraintTop_toTopOf="@+id/image_star_1" />
+
+    <ImageView
+        android:id="@+id/image_star_3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_star_filled"
+        app:layout_constraintBottom_toBottomOf="@+id/image_star_2"
+        app:layout_constraintEnd_toStartOf="@+id/image_star_4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_star_2"
+        app:layout_constraintTop_toTopOf="@+id/image_star_2" />
+
+    <ImageView
+        android:id="@+id/image_star_4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_star_filled"
+        app:layout_constraintBottom_toBottomOf="@+id/image_star_3"
+        app:layout_constraintEnd_toStartOf="@+id/image_star_5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_star_3"
+        app:layout_constraintTop_toTopOf="@+id/image_star_3" />
+
+    <ImageView
+        android:id="@+id/image_star_5"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_star_outlined"
+        app:layout_constraintBottom_toBottomOf="@+id/image_star_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_star_4"
+        app:layout_constraintTop_toTopOf="@+id/image_star_4" />
+
+</merge>

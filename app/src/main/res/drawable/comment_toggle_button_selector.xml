@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="false"
-        android:drawable="@drawable/heart_outlined_circle_background" />
+        android:drawable="@drawable/comment_outlined_circle_background" />
     <item android:state_checked="true"
-        android:drawable="@drawable/heart_filled_red_circle_background" />
+        android:drawable="@drawable/comment_filled_circle_background" />
 </selector>
