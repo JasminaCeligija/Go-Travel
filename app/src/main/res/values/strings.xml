@@ -15,7 +15,6 @@
     <string name="menu_about_me">About me</string>
 
     <!-- Trip details -->
-
     <string name="trip_details_see_trip_plan">See trip plan</string>
     <string name="trip_details_read_reviews">Read reviews</string>
     <string name="trip_details_ask_a_question">Ask a question</string>
@@ -24,9 +23,18 @@
     <string name="trip_details_about_trip">About trip</string>
     <string name="trip_details_days">days</string>
     <string name="trip_details_button_text">Book now</string>
+
+    <!-- Read reviews -->
+    <string name="read_reviews_toolbar_title">Let\'s start talking</string>
     <string name="read_reviews_likes">LIKES</string>
     <string name="read_reviews_comments">COMMENTS</string>
     <string name="read_reviews_comment_hint">Add a comment</string>
     <string name="read_reviews_post_comment">Post</string>
+    <string name="read_reviews_subtitle">WE APPRECIATE YOUR FEEDBACK</string>
+    <string name="read_reviews_leave_a_comment">Leave us a comment</string>
+
+    <!-- Contact us -->
+    <string name="contact_us_toolbar_title">Do you have any questions ?</string>
+    <string name="contact_us_subtitle">We would love to hear from you</string>
 
 </resources>

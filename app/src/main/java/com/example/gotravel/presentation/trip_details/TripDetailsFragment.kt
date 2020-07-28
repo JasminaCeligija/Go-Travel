@@ -44,7 +44,7 @@ class TripDetailsFragment : Fragment() {
         } ?: run {
             showErrorDialog()
         }
-        //findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToReadReviewsFragment())
+        findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToAskAQuestionFragment())
 
         viewModel = ViewModelProvider(this).get(TripDetailsViewModel::class.java)
 

@@ -45,4 +45,20 @@ class ReadReviewsViewModel : ViewModel() {
         return@withContext Result.Success(mockedReviews)
     }
 
+    fun postReview(newReview: Review, data: List<Review>) {
+        state.mutatePost { copy(reviewsViewState = ReviewsViewState.Loading) }
+        viewModelScope.launch {
+            when (val result = postReviewForUseCase(newReview, data)) {
+                is Result.Success -> {
+                    state.mutatePost { copy(reviewsViewState = ReviewsViewState.Content(result.data)) }
+                }
+            }
+        }
+    }
+
+    private suspend fun postReviewForUseCase(newReview: Review, data: List<Review>) = withContext(Dispatchers.IO) {
+        val newMockedReviews = listOf(newReview) + data
+        return@withContext Result.Success(newMockedReviews)
+    }
+
 }

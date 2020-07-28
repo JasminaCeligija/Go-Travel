@@ -42,9 +42,10 @@ class ReviewAdapter(private val commentPostedCallback: (comment: Comment) -> Uni
         private var newReviewsList: List<Review>
     ) : DiffUtil.Callback() {
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            val oldReview = oldReviewsList[oldItemPosition]
+           /* val oldReview = oldReviewsList[oldItemPosition]
             val newReview = newReviewsList[newItemPosition]
-            return oldReview.id == newReview.id
+            return oldReview.id == newReview.id */
+            return false
         }
 
         override fun getOldListSize(): Int {
@@ -56,9 +57,10 @@ class ReviewAdapter(private val commentPostedCallback: (comment: Comment) -> Uni
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            val oldReview = oldReviewsList[oldItemPosition]
+            /*val oldReview = oldReviewsList[oldItemPosition]
             val newReview = newReviewsList[newItemPosition]
-            return oldReview == newReview
+            return oldReview == newReview */
+            return false
         }
     }
 }
