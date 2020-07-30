@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gotravel.R
 import com.example.gotravel.common.model.Comment
 import com.example.gotravel.common.model.Review
+import com.example.gotravel.utils.hideKeyboard
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.review_layout.*
 import kotlinx.android.synthetic.main.review_layout.view.*
@@ -32,13 +33,18 @@ sealed class ReviewViewHolder(override val containerView: View) :
 
             itemView.text_post_comment.setOnClickListener {
                 val commentText = edit_text_comment.text.toString()
-                edit_text_comment.setText("")
+                clearFields()
                 text_num_of_comments.text = (text_num_of_comments.text.toString().toInt() + 1).toString()
                 val newComment = Comment(review.userName, commentText, "12.12.2020.")
                 commentPostedCallback(newComment)
             }
-
             //TODO: return like status
+        }
+
+        private fun clearFields() {
+            edit_text_comment.hideKeyboard()
+            edit_text_comment.setText("")
+            edit_text_comment.clearFocus()
         }
 
         fun bind(review: Review) {

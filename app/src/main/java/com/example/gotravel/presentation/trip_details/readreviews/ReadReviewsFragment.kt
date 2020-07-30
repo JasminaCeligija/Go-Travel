@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gotravel.R
 import com.example.gotravel.common.model.Comment
 import com.example.gotravel.common.model.Review
+import com.example.gotravel.utils.hideKeyboard
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.fragment_read_reviews.*
 import java.text.SimpleDateFormat
@@ -47,7 +47,7 @@ class ReadReviewsFragment : Fragment() {
             itemAnimator = DefaultItemAnimator()
             setHasFixedSize(true)
             adapter = ReviewAdapter(
-                commentPostedCallback = ::getNewComment
+                commentPostedCallback = ::saveNewComment
             )
 
         }
@@ -98,11 +98,13 @@ class ReadReviewsFragment : Fragment() {
     }
 
     private fun clearFields() {
+        edit_text_review.hideKeyboard()
         edit_text_review.setText("")
+        edit_text_review.clearFocus()
     }
 
-    private fun getNewComment(comment: Comment) {
-        Toast.makeText(context, comment.text, Toast.LENGTH_SHORT).show()
+    private fun saveNewComment(comment: Comment) {
+        //Toast.makeText(context, comment.text, Toast.LENGTH_SHORT).show()
     }
 
     private fun convertDate(dateInMilliseconds: Long): String? {

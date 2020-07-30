@@ -17,12 +17,15 @@
     <!-- Trip details -->
     <string name="trip_details_see_trip_plan">See trip plan</string>
     <string name="trip_details_read_reviews">Read reviews</string>
-    <string name="trip_details_ask_a_question">Ask a question</string>
+    <string name="trip_details_contact_us">Contact us</string>
     <string name="trip_details_save_trip">Save trip</string>
     <string name="trip_details_price">Price: $%1$s</string>
-    <string name="trip_details_about_trip">About trip</string>
+    <string name="trip_details_trip_information">Trip information</string>
     <string name="trip_details_days">days</string>
     <string name="trip_details_button_text">Book now</string>
+
+    <!-- See trip plan -->
+    <string name="see_trip_plan_toolbar_title">Prepare for the activity</string>
 
     <!-- Read reviews -->
     <string name="read_reviews_toolbar_title">Let\'s start talking</string>
@@ -36,5 +39,9 @@
     <!-- Contact us -->
     <string name="contact_us_toolbar_title">Do you have any questions ?</string>
     <string name="contact_us_subtitle">We would love to hear from you</string>
+    <string name="contact_us_hint">Feel free to ask us anything</string>
+    <string name="contact_us_submit">Submit</string>
+    <string name="contact_us_address">ADDRESS</string>
+    <string name="contact_us_phone">PHONE</string>
 
 </resources>

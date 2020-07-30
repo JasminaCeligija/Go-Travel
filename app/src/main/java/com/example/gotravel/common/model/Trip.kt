@@ -11,7 +11,8 @@ data class Trip (
     val numOfDays: String = "",
     val price: String = "",
     val photoSrc: Int,
-    val travelMode: TravelMode
+    val travelMode: TravelMode,
+    val imageResources: List<Int>
 ) : Serializable
 
 

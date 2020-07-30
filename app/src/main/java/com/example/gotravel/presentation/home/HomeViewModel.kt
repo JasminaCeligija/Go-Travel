@@ -53,7 +53,16 @@ class HomeViewModel : ViewModel() {
                 "12",
                 "3115",
                 R.drawable.dummy,
-                TravelMode.Airplane
+                TravelMode.Airplane,
+                listOf(
+                    R.drawable.img_bali_1,
+                    R.drawable.img_bali_2,
+                    R.drawable.img_bali_3,
+                    R.drawable.img_bali_4,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy
+                )
             ),
             Trip(
                 "",
@@ -64,7 +73,16 @@ class HomeViewModel : ViewModel() {
                 "7",
                 "1000",
                 R.drawable.dummy,
-                TravelMode.Bus
+                TravelMode.Bus,
+                listOf(
+                    R.drawable.img_bali_1,
+                    R.drawable.img_bali_2,
+                    R.drawable.img_bali_3,
+                    R.drawable.img_bali_4,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy
+                )
             ),
             Trip(
                 "",
@@ -75,7 +93,16 @@ class HomeViewModel : ViewModel() {
                 "10",
                 "2500",
                 R.drawable.dummy,
-                TravelMode.Bus
+                TravelMode.Bus,
+                listOf(
+                    R.drawable.img_bali_1,
+                    R.drawable.img_bali_2,
+                    R.drawable.img_bali_3,
+                    R.drawable.img_bali_4,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy
+                )
             ),
             Trip(
                 "",
@@ -86,7 +113,16 @@ class HomeViewModel : ViewModel() {
                 "3",
                 "500",
                 R.drawable.dummy,
-                TravelMode.Airplane
+                TravelMode.Airplane,
+                listOf(
+                    R.drawable.img_bali_1,
+                    R.drawable.img_bali_2,
+                    R.drawable.img_bali_3,
+                    R.drawable.img_bali_4,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy
+                )
             ),
             Trip(
                 "",
@@ -97,13 +133,22 @@ class HomeViewModel : ViewModel() {
                 "5",
                 "750",
                 R.drawable.dummy,
-                TravelMode.Airplane
+                TravelMode.Airplane,
+                listOf(
+                    R.drawable.img_bali_1,
+                    R.drawable.img_bali_2,
+                    R.drawable.img_bali_3,
+                    R.drawable.img_bali_4,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy,
+                    R.drawable.img_dummy
+                )
             )
         )
         return@withContext Result.Success(mockedTrips)
     }
 
-    private suspend fun getSortedTripsByLowestPrice() = withContext(Dispatchers.IO) {
+/*    private suspend fun getSortedTripsByLowestPrice() = withContext(Dispatchers.IO) {
         val mockedTrips = listOf(
             Trip(
                 "",
@@ -284,6 +329,6 @@ class HomeViewModel : ViewModel() {
             )
         )
         return@withContext Result.Success(mockedTrips)
-    }
+    }*/
 
 }

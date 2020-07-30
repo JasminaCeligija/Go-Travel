@@ -92,7 +92,7 @@
         tools:layout="@layout/fragment_read_reviews" />
     <fragment
         android:id="@+id/seeTripPlanFragment"
-        android:name="com.example.gotravel.presentation.trip_details.SeeTripPlanFragment"
+        android:name="com.example.gotravel.presentation.trip_details.trip_plan.SeeTripPlanFragment"
         android:label="fragment_see_trip_plan"
         tools:layout="@layout/fragment_see_trip_plan" />
     <fragment

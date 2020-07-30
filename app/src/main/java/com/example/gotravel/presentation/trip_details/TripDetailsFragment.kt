@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +15,6 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.gotravel.R
 import com.example.gotravel.common.model.Trip
-import com.example.gotravel.common.model.TripDay
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_trip_details.*
 import kotlin.math.abs
@@ -28,6 +23,7 @@ import kotlin.math.abs
 class TripDetailsFragment : Fragment() {
 
     private lateinit var viewModel: TripDetailsViewModel
+    private lateinit var selectedTrip: Trip
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,17 +40,16 @@ class TripDetailsFragment : Fragment() {
         } ?: run {
             showErrorDialog()
         }
-        findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToAskAQuestionFragment())
 
         viewModel = ViewModelProvider(this).get(TripDetailsViewModel::class.java)
 
         setTripDaysAdapter()
         setViewPager()
-        setObservers()
         setListeners()
     }
 
     private fun setUpTripData(trip: Trip) {
+        selectedTrip = trip
         text_name.text = trip.name
         text_start_date.text = trip.startDate
         text_end_date.text = trip.endDate
@@ -87,13 +82,6 @@ class TripDetailsFragment : Fragment() {
          } */
     }
 
-    private fun setObservers() {
-
-        viewModel.state.observe(viewLifecycleOwner, Observer {
-            render(it)
-        })
-    }
-
 
     private fun setListeners() {
 
@@ -113,11 +101,11 @@ class TripDetailsFragment : Fragment() {
             findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToBookNowFragment())
         }
 
-        button_save_trip.setOnClickListener {
+        /*button_save_trip.setOnClickListener {
             if (button_save_trip.drawable.constantState == ContextCompat.getDrawable(requireContext(), R.drawable.ic_heart_outlined)?.constantState)
                 button_save_trip.setImageResource(R.drawable.ic_heart_filled_red)
             else button_save_trip.setImageResource(R.drawable.ic_heart_outlined)
-        }
+        } */
 
         image_back.setOnClickListener {
             findNavController().popBackStack()
@@ -125,24 +113,9 @@ class TripDetailsFragment : Fragment() {
     }
 
 
-    private fun render(state: TripDetailsViewState) {
-
-        when (state.tripPlanViewState) {
-            is TripPlanViewState.Loading -> {
-            }
-            is TripPlanViewState.Error -> {
-            }
-            is TripPlanViewState.Content -> {
-
-                // (recycler_view_trip_days.adapter as TripPlanAdapter).data = state.tripPlanViewState.tripDays
-            }
-        }
-    }
-
-
     private fun setViewPager() {
 
-        val myPager = ScreenSlidePagerAdapter(requireActivity(), getImageResources())
+        val myPager = ScreenSlidePagerAdapter(requireActivity(), selectedTrip.imageResources)
         view_pager_trip_images.adapter = myPager
         view_pager_trip_images.clipToPadding = false
         view_pager_trip_images.clipChildren = false
@@ -166,20 +139,6 @@ class TripDetailsFragment : Fragment() {
         }
 
         view_pager_trip_images.setPageTransformer(transformer)
-    }
-
-
-    //TODO: get images from api
-    private fun getImageResources(): List<Int> {
-        return listOf(
-            R.drawable.img_bali_1,
-            R.drawable.img_bali_2,
-            R.drawable.img_bali_3,
-            R.drawable.img_bali_4,
-            R.drawable.img_dummy,
-            R.drawable.img_dummy,
-            R.drawable.img_dummy
-        )
     }
 
     companion object {
