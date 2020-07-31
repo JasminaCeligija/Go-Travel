@@ -8,7 +8,7 @@
     <string name="intro_quote">Limits are for those who need them</string>
 
     <!-- Navigation bar -->
-    <string name="menu_contact_us">Contact Us</string>
+    <string name="menu_faq">FAQ</string>
     <string name="menu_favourites">Favourites</string>
     <string name="menu_home">Home</string>
     <string name="menu_about_us">About Us</string>
@@ -43,5 +43,27 @@
     <string name="contact_us_submit">Submit</string>
     <string name="contact_us_address">ADDRESS</string>
     <string name="contact_us_phone">PHONE</string>
+
+    <!--About us -->
+    <string name="about_us_toolbar_title">About us</string>
+    <string name="about_us_subtitle">Let\'s get to know each other</string>
+    <string name="about_us_intro_title">Who we are ?</string>
+    <string name="about_us_intro">Why choose GoTravel travel agency? Travel arranged by a professional travel agents guarantees that you never travel alone. You benefit from our years of experience and our relationship with suppliers in the travel industry. From getting the best deals and VIP treatment, to having the someone to turn to when the unexpected occurs, a travel agent is a traveler’s best resource.</string>
+    <string name="about_us_unique_title">What makes us unique?</string>
+    <string name="about_us_unique">Many agencies force you to deal with multiple people throughout the booking process, making it disjointed and impersonal. At GoTravel you will deal with the same travel expert from the moment of initial contact until you are safely back at home. Unlike many other agencies who do their business solely online or even from abroad, we still keep regular office hours and are delighted when with planned visits or drop-ins to our West Roxbury office.</string>
+
+    <!-- FAQ -->
+    <string name="faq_toolbar_title">Frequently asked questions</string>
+    <string name="faq_need_help">Need help ?</string>
+    <string name="faq_ask_us">Ask us</string>
+
+
+
+
+
+
+
+
+
 
 </resources>

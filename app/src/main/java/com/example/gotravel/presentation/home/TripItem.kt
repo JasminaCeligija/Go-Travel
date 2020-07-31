@@ -32,7 +32,7 @@ sealed class TripViewHolder(override val containerView: View) :
             this.trip = trip
             trip.apply {
                 setTripData(
-                    name, text_title,
+                    name, text_question,
                     startDate, endDate, text_date,
                     description, text_description,
                     numOfDays, text_num_of_days,

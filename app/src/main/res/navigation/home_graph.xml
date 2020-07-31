@@ -76,11 +76,6 @@
         android:label="fragment_favourites"
         tools:layout="@layout/fragment_favourites" />
     <fragment
-        android:id="@+id/contact_us"
-        android:name="com.example.gotravel.presentation.ContactUsFragment"
-        android:label="fragment_contact_us"
-        tools:layout="@layout/fragment_contact_us" />
-    <fragment
         android:id="@+id/about_us"
         android:name="com.example.gotravel.presentation.AboutUsFragment"
         android:label="fragment_about_us"
@@ -105,5 +100,18 @@
         android:name="com.example.gotravel.presentation.BookNowFragment"
         android:label="fragment_book_now"
         tools:layout="@layout/fragment_book_now" />
+    <fragment
+        android:id="@+id/faq"
+        android:name="com.example.gotravel.presentation.faq.FAQFragment"
+        android:label="fragment_f_a_q"
+        tools:layout="@layout/fragment_f_a_q" >
+        <action
+            android:id="@+id/action_faq_to_askAQuestionFragment"
+            app:destination="@id/askAQuestionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
 </navigation>

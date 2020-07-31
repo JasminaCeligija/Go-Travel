@@ -119,7 +119,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager_trip_images"
                 android:layout_width="0dp"
-                android:layout_height="230dp"
+                android:layout_height="250dp"
                 android:paddingStart="45dp"
                 android:paddingEnd="45dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -128,8 +128,8 @@
 
             <ImageButton
                 android:id="@+id/button_see_trip_plan"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/map_circle_background"
                 android:elevation="10dp"
@@ -156,8 +156,8 @@
 
             <ImageButton
                 android:id="@+id/button_read_reviews"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:background="@drawable/reviews_circle_background"
                 android:elevation="10dp"
                 android:scaleType="centerInside"
@@ -181,8 +181,8 @@
 
             <ImageButton
                 android:id="@+id/button_ask_a_question"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:background="@drawable/q_a_circle_background"
                 android:elevation="10dp"
                 android:scaleType="centerInside"
@@ -206,8 +206,8 @@
 
             <ToggleButton
                 android:id="@+id/button_save_trip"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/heart_toggle_button_selector"

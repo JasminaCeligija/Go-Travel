@@ -20,7 +20,7 @@ class Toolbar @JvmOverloads constructor(
             context.theme.obtainStyledAttributes(it, R.styleable.toolbar, 0, 0)
                 .apply {
                     try {
-                        text_title.text = getString(R.styleable.toolbar_toolbar_title) ?: ""
+                        text_question.text = getString(R.styleable.toolbar_toolbar_title) ?: ""
 
                     } finally {
                         recycle()

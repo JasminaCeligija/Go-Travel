@@ -17,6 +17,6 @@
         android:id="@+id/recycler_view_trip_days"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="25dp"/>
 
 </LinearLayout>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/contact_us"
-        android:icon="@drawable/menu_contact_us_selector"
-        android:title="@string/menu_contact_us" />
+        android:id="@+id/faq"
+        android:icon="@drawable/menu_faq_selector"
+        android:title="@string/menu_faq" />
 
     <item
         android:id="@+id/favourites"

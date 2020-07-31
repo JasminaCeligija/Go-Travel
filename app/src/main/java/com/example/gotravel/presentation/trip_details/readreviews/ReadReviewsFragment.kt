@@ -54,7 +54,6 @@ class ReadReviewsFragment : Fragment() {
     }
 
     private fun setObservers() {
-
         viewModel.state.observe(viewLifecycleOwner, Observer {
             render(it)
         })
@@ -81,9 +80,7 @@ class ReadReviewsFragment : Fragment() {
             is ReviewsViewState.Content -> {
                 (recycler_view_reviews.adapter as ReviewAdapter).data = state.reviewsViewState.reviews
             }
-
         }
-
     }
 
     private fun prepareReviewForPosting() {
