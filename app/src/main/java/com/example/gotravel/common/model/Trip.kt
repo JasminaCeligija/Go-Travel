@@ -5,6 +5,7 @@ import java.io.Serializable
 data class Trip (
     val id: String = "",
     val name: String = "",
+    val shortDescription: String = "",
     val description: String = "",
     val startDate: String = "",
     val endDate: String = "",

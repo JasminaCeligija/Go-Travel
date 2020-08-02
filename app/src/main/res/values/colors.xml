@@ -8,8 +8,9 @@
     <color name="silver">#d0dce6</color>
     <color name="black">#000000</color>
     <color name="dark">#1c2330</color>
-    <color name="transparent_background">#bfedf0f5</color>
+    <color name="transparent_background">#e6edf0f5</color>
     <color name="light_blue">#8cccd1</color>
+    <color name="baby_blue">#a3def2</color>
     <!--<color name="blue">#6bcbde</color> efwewfwefw-->
     <color name="blue">#6cb7d7</color>
     <color name="dark_blue">#118a96</color>

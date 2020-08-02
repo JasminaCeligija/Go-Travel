@@ -15,66 +15,54 @@
         app:layout_constraintTop_toTopOf="parent"
         app:toolbar_title="@string/faq_toolbar_title" />
 
-    <ImageView
-        android:id="@+id/img_background"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/img_abstract"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-    <TextView
-        android:id="@+id/text_need_help"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_height="100dp"
         android:layout_marginTop="16dp"
-        android:gravity="start"
-        android:text="@string/faq_need_help"
-        android:textAllCaps="true"
-        android:textColor="@color/dark"
-        android:textSize="25sp"
+        android:background="@drawable/img_abstract_background"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_background" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/background_dark_gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        <TextView
+            android:id="@+id/text_need_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/faq_need_help"
+            android:textAllCaps="true"
+            android:textColor="@color/dark"
+            android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/button_ask_us"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/faq_ask_us"
-        android:textAllCaps="true"
-        android:textColor="@color/blue"
-        app:layout_constraintStart_toStartOf="@+id/text_need_help"
-        app:layout_constraintTop_toBottomOf="@+id/text_need_help"
-        app:rippleColor="@color/light_blue"
-        app:strokeColor="@color/blue"
-        app:strokeWidth="1dp" />
+        <Button
+            android:id="@+id/button_ask_us"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/faq_ask_us"
+            android:textAllCaps="true"
+            android:textColor="@color/dark"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view_faq"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_need_help"
+            app:layout_constraintTop_toBottomOf="@+id/text_need_help"
+            app:rippleColor="@color/baby_blue"
+            app:strokeColor="@color/dark"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_faq"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_background" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

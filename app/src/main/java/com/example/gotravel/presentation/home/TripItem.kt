@@ -31,38 +31,16 @@ sealed class TripViewHolder(override val containerView: View) :
         fun bind(trip: Trip) {
             this.trip = trip
             trip.apply {
-                setTripData(
-                    name, text_question,
-                    startDate, endDate, text_date,
-                    description, text_description,
-                    numOfDays, text_num_of_days,
-                    price, text_price,
-                    photoSrc, image_trip,
-                    travelMode, image_transport
-                )
+                text_name.text = trip.name
+                text_date.text = trip.startDate.plus(" | ").plus(trip.endDate)
+                text_description.text = trip.shortDescription
+                text_num_of_days.text = trip.numOfDays.plus(" days")
+                text_price.text = trip.price.plus(" $")
+                image_trip.setImageResource(trip.photoSrc)
+                if(trip.travelMode == TravelMode.Airplane)
+                    image_transport.setImageResource(R.drawable.ic_airplane)
+                else image_transport.setImageResource(R.drawable.ic_bus)
             }
-        }
-    }
-
-    companion object {
-        fun setTripData(
-            title: String, titleTextView: TextView,
-            startDate: String, endDate: String, dateTextView: TextView,
-            description: String, descriptionTextView: TextView,
-            numOfDays: String, numOfDaysTextView: TextView,
-            price: String, priceTextView: TextView,
-            photoSrc: Int, tripImage: ImageView,
-            travelMode: TravelMode, transportImageView: ImageView) {
-
-            titleTextView.text = title
-            dateTextView.text = startDate.plus(" | ").plus(endDate)
-            descriptionTextView.text = description
-            numOfDaysTextView.text = numOfDays.plus(" days")
-            priceTextView.text = price.plus(" $")
-            tripImage.setImageResource(photoSrc)
-            if (travelMode == TravelMode.Airplane)
-                transportImageView.setImageResource(R.drawable.ic_airplane)
-            else transportImageView.setImageResource(R.drawable.ic_bus)
         }
     }
 }

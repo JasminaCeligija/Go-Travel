@@ -58,12 +58,13 @@
     <string name="faq_ask_us">Ask us</string>
 
 
-
-
-
-
-
-
+    <string-array name="SearchFilterOptions">
+        <item>Popularity</item>
+        <item>Price - Low to High</item>
+        <item>Price - High to Low</item>
+        <item>Time - Newest</item>
+        <item>Time - Oldest</item>
+    </string-array>
 
 
 </resources>
