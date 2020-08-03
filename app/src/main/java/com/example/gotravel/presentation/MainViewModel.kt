@@ -6,4 +6,6 @@ import com.example.gotravel.utils.SingleLiveEvent
 
 class MainViewModel: ViewModel() {
 
+
+
 }

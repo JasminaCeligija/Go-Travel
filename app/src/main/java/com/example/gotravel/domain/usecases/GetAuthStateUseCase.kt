@@ -4,9 +4,10 @@ import com.example.gotravel.data.DefaultUserRepository
 
 class GetAuthStateUseCase : UseCase<Unit, Boolean>() {
 
-    private val repository = DefaultUserRepository()
+    //private val repository = DefaultUserRepository()
 
     override fun doWork(params: Unit): Boolean {
-        return repository.isUserAuthenticated()
+        //return repository.isUserAuthenticated()
+        return true
     }
 }

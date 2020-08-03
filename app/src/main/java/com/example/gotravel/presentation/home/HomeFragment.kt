@@ -42,8 +42,13 @@ class HomeFragment : Fragment() {
 
         setUpTripsAdapter()
         setUpFilterSpinner()
+        initUI()
         setObservers()
         setListeners()
+    }
+
+    private fun initUI() {
+        viewModel.refreshData()
     }
 
     private fun setUpTripsAdapter() {

@@ -1,18 +1,37 @@
 package com.example.gotravel.data
 
+import androidx.lifecycle.LiveData
 import com.example.gotravel.common.Result
 import com.example.gotravel.common.Error
-import com.example.gotravel.common.model.Gender
 import com.example.gotravel.common.model.User
+import com.example.gotravel.domain.UserDao
 import com.example.gotravel.domain.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class DefaultUserRepository: UserRepository {
+class DefaultUserRepository(private val userDao: UserDao): UserRepository {
 
     override var user: User? = null
 
-    override fun isUserAuthenticated(): Boolean {
+
+
+    override suspend fun createUser(
+        firstName: String,
+        lastName: String,
+        email: String,
+        password: String,
+        birthDate: Long
+    ) = withContext(Dispatchers.IO) {
+        val newUser = User(firstName, lastName, email, password, "", 0L, "" )
+        userDao.insert(newUser)
+        return@withContext Result.Success(newUser)
+    }
+
+    override suspend fun loginUser(email: String, password: String) = withContext(Dispatchers.IO) {
+        TODO("Not yet implemented")
+    }
+
+    /*override fun isUserAuthenticated(): Boolean {
         return user != null
     }
 
@@ -41,12 +60,12 @@ class DefaultUserRepository: UserRepository {
     }
 
     private fun getMockedUser(): User {
-        return User("1", "Orion", "Team", "orion@gmail.com", "0000000", Gender.Male, 1111111)
+        return User("1", "Orion", "Team", "orion@gmail.com", "0000000", "Male", 1111111)
     }
 
     override suspend fun logoutUser() = withContext(Dispatchers.IO) {
         user = null
         return@withContext Result.Success(Unit)
-    }
+    } */
 
 }

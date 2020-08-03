@@ -18,9 +18,7 @@ class HomeViewModel : ViewModel() {
     val state: MutableLiveData<HomeViewState> = MutableLiveData(HomeViewState())
 
     init {
-        viewModelScope.launch {
-            refreshData()
-        }
+        refreshData()
     }
 
     fun sortBy(sortOption: String) {
@@ -50,15 +48,15 @@ class HomeViewModel : ViewModel() {
     }
 
     fun searchTripByName(name: String, trips: List<Trip>) {
-        if(name.isBlank()) {
+        if (name.isBlank()) {
             viewModelScope.launch {
                 getTripsPopularFirst()
             }
         } else {
             val newList = mutableListOf<Trip>()
-            for(trip in trips) {
-                if(trip.name.contains(name, ignoreCase = true)) {
-                   newList.add(trip)
+            for (trip in trips) {
+                if (trip.name.contains(name, ignoreCase = true)) {
+                    newList.add(trip)
                 }
             }
             state.mutatePost {
@@ -72,7 +70,9 @@ class HomeViewModel : ViewModel() {
     }
 
     fun refreshData() {
-        getTripsPopularFirst()
+        viewModelScope.launch {
+            getTripsPopularFirst()
+        }
     }
 
     private fun getTripsPopularFirst() {
@@ -200,12 +200,12 @@ class HomeViewModel : ViewModel() {
                 TravelMode.Airplane,
                 listOf(
                     R.drawable.img_london_0,
-                    R.drawable.img_london_1,
+                    R.drawable.img_london_6,
                     R.drawable.img_london_2,
                     R.drawable.img_london_3,
                     R.drawable.img_london_4,
                     R.drawable.img_london_5,
-                    R.drawable.img_london_6
+                    R.drawable.img_london_1
                 )
             ),
             Trip(
@@ -361,12 +361,12 @@ class HomeViewModel : ViewModel() {
                 TravelMode.Airplane,
                 listOf(
                     R.drawable.img_london_0,
-                    R.drawable.img_london_1,
+                    R.drawable.img_london_6,
                     R.drawable.img_london_2,
                     R.drawable.img_london_3,
                     R.drawable.img_london_4,
                     R.drawable.img_london_5,
-                    R.drawable.img_london_6
+                    R.drawable.img_london_1
                 )
             ),
             Trip(
@@ -503,12 +503,12 @@ class HomeViewModel : ViewModel() {
                 TravelMode.Airplane,
                 listOf(
                     R.drawable.img_london_0,
-                    R.drawable.img_london_1,
+                    R.drawable.img_london_6,
                     R.drawable.img_london_2,
                     R.drawable.img_london_3,
                     R.drawable.img_london_4,
                     R.drawable.img_london_5,
-                    R.drawable.img_london_6
+                    R.drawable.img_london_1
                 )
             )
         )
@@ -530,12 +530,12 @@ class HomeViewModel : ViewModel() {
                 TravelMode.Airplane,
                 listOf(
                     R.drawable.img_london_0,
-                    R.drawable.img_london_1,
+                    R.drawable.img_london_6,
                     R.drawable.img_london_2,
                     R.drawable.img_london_3,
                     R.drawable.img_london_4,
                     R.drawable.img_london_5,
-                    R.drawable.img_london_6
+                    R.drawable.img_london_1
                 )
             ),
             Trip(
@@ -739,12 +739,12 @@ class HomeViewModel : ViewModel() {
                 TravelMode.Airplane,
                 listOf(
                     R.drawable.img_london_0,
-                    R.drawable.img_london_1,
+                    R.drawable.img_london_6,
                     R.drawable.img_london_2,
                     R.drawable.img_london_3,
                     R.drawable.img_london_4,
                     R.drawable.img_london_5,
-                    R.drawable.img_london_6
+                    R.drawable.img_london_1
                 )
             )
         )
