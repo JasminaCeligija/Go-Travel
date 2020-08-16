@@ -16,11 +16,11 @@ class SplashActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
 
-        /*Thread(Runnable {
+       /* Thread(Runnable {
             updateProgress()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }).start() */
+        }).start()*/
     }
 
     private fun updateProgress() {

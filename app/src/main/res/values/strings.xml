@@ -66,5 +66,11 @@
         <item>Time - Oldest</item>
     </string-array>
 
+    <string-array name="GenderOptions">
+        <item>Man</item>
+        <item>Woman</item>
+        <item>Other</item>
+    </string-array>
+
 
 </resources>

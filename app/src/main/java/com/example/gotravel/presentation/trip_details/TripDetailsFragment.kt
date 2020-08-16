@@ -59,7 +59,7 @@ class TripDetailsFragment : Fragment() {
     }
 
     private fun showErrorDialog() {
-        MaterialAlertDialogBuilder(context)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle("Error!")
             .setMessage("There's an issue loading this trip. Please try again later.")
             .setCancelable(false)

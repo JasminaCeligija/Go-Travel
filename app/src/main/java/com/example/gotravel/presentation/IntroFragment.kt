@@ -33,6 +33,9 @@ class IntroFragment : Fragment() {
         button_login.setOnClickListener {
             findNavController().navigate(IntroFragmentDirections.actionIntroFragmentToLoginFragment())
         }
-    }
 
+        button_create_account.setOnClickListener {
+            findNavController().navigate(IntroFragmentDirections.actionIntroFragmentToCreateAccountFragment())
+        }
+    }
 }

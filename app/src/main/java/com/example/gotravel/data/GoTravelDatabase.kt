@@ -9,7 +9,8 @@ import com.example.gotravel.domain.UserDao
 
 @Database(
     entities = [User::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class GoTravelDatabase : RoomDatabase() {
 
@@ -18,9 +19,8 @@ abstract class GoTravelDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var instance: GoTravelDatabase? = null
-        private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+        operator fun invoke(context: Context) = instance ?: synchronized(this) {
             instance ?: buildDatabase(context).also {
                 instance = it
             }

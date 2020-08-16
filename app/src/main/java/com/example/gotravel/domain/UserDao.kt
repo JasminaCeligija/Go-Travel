@@ -1,18 +1,17 @@
 package com.example.gotravel.domain
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.gotravel.common.model.User
 
 @Dao
 interface UserDao {
 
-    //update or insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(user: User)
+    suspend fun insertOrUpdateUser(vararg user: User)
 
     @Query("SELECT * FROM users WHERE email = :email and password = :password")
-    fun loginUser(email: String, password: String): User
+    fun getUser(email: String, password: String): User?
+
+    @Delete
+    suspend fun deleteUser(user: User)
 }
