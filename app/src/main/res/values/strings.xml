@@ -57,6 +57,27 @@
     <string name="faq_need_help">Need help ?</string>
     <string name="faq_ask_us">Ask us</string>
 
+    <!-- Create account -->
+    <string name="create_account_log_in"><u>Already have an account? <b>Log in</b></u></string>
+    <string name="create_account_title">CREATE ACCOUNT</string>
+    <string name="create_account_subtitle">JOIN US AND GET ALL THE FEATURES</string>
+    <string name="create_account_upload_photo">Upload photo</string>
+    <string name="create_account_first_name_hint">First name</string>
+    <string name="create_account_last_name_hint">Last name</string>
+    <string name="create_account_email_hint">Email</string>
+    <string name="create_account_password_hint">Password</string>
+    <string name="create_account_confirm_password_hint">Confirm password</string>
+    <string name="create_account_select_gender">Select gender</string>
+    <string name="create_account_select_birth_date">Select birth date</string>
+    <string name="create_account_button">Create account</string>
+
+    <!-- Log in -->
+    <string name="log_in_title">LOG IN</string>
+    <string name="log_in_subtitle">You need to be logged in to book your trip</string>
+    <string name="log_in_create_account">Don\'t have an account? <b>Sign up</b></string>
+    <string name="log_in_button">Log in</string>
+    <string name="log_in_skip_and_explore"><u>Skip and Explore</u></string>
+
 
     <string-array name="SearchFilterOptions">
         <item>Popularity</item>

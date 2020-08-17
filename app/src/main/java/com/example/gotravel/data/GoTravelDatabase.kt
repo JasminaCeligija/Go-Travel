@@ -30,7 +30,7 @@ abstract class GoTravelDatabase : RoomDatabase() {
             context.applicationContext,
             GoTravelDatabase::class.java,
             "gotravel.db"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
 }

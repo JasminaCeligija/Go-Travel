@@ -10,7 +10,7 @@
                 android:topRightRadius="5dp" />
             <stroke
                 android:width="3dp"
-                android:color="@color/colorPrimary" />
+                android:color="@color/light_gray" />
         </shape>
     </item>
 </layer-list>

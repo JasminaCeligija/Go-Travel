@@ -17,7 +17,7 @@ data class User (
     @ColumnInfo(name =  "gender")
     val gender: String,
     @ColumnInfo(name =  "birth_date")
-    val birthDate: Long,
+    val birthDate: String,
     @ColumnInfo(name =  "role")
     val role: String
 ) {

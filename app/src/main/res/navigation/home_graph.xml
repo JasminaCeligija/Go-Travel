@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_graph"
-    app:startDestination="@id/introFragment"
+    app:startDestination="@id/loginFragment"
     tools:ignore="UnusedNavigation">
 
     <include app:graph="@navigation/login_graph" />
@@ -114,29 +114,6 @@
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/introFragment"
-        android:name="com.example.gotravel.presentation.IntroFragment"
-        android:label="fragment_intro"
-        tools:layout="@layout/fragment_intro" >
-        <action
-            android:id="@+id/action_introFragment_to_home"
-            app:destination="@id/home" />
-        <action
-            android:id="@+id/action_introFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-        <action
-            android:id="@+id/action_introFragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.gotravel.presentation.auth.login.LoginFragment"
         android:label="fragment_login"
@@ -148,6 +125,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_loginFragment_to_home"
+            app:destination="@id/home"/>
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"

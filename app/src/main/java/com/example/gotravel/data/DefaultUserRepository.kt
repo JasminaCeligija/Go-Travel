@@ -20,10 +20,10 @@ class DefaultUserRepository(
         lastName: String,
         email: String,
         password: String,
-        birthDate: Long,
-        role: String
+        gender: String,
+        birthDate: String
     ): Result<User> = withContext(Dispatchers.IO) {
-        val newUser = User(firstName, lastName, email, password, "", 0L, "")
+        val newUser = User(firstName, lastName, email, password, gender, birthDate, "user")
         userDao.insertOrUpdateUser(newUser)
         return@withContext Result.Success(newUser)
     }

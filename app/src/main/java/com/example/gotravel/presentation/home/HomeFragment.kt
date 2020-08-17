@@ -23,7 +23,6 @@ import com.example.gotravel.presentation.trip_details.TripDetailsFragment
 import com.example.gotravel.utils.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_home.*
 
-
 class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel

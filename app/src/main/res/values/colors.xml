@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#6bcbde</color>
     <color name="white">#ffffff</color>
+    <color name="light_gray">#f0f3f5</color>
     <color name="silver">#d0dce6</color>
     <color name="black">#000000</color>
     <color name="dark">#1c2330</color>

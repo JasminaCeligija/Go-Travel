@@ -43,8 +43,8 @@ class AppPreferences(private val sharedPreferences: SharedPreferences) {
         sharedPreferences.edit().putString(KEY_USER_ROLE, role).apply()
     }
 
-    fun setUserBirthDate(birthDate: Long) {
-        sharedPreferences.edit().putLong(KEY_USER_BIRTH_DATE, birthDate).apply()
+    fun setUserBirthDate(birthDate: String) {
+        sharedPreferences.edit().putString(KEY_USER_BIRTH_DATE, birthDate).apply()
     }
 
     fun getUserId(): String? = sharedPreferences.getString(KEY_USER_ID, null)
@@ -52,5 +52,5 @@ class AppPreferences(private val sharedPreferences: SharedPreferences) {
     fun getUserLastName(): String? = sharedPreferences.getString(KEY_USER_LAST_NAME, null)
     fun getUserGender(): String? = sharedPreferences.getString(KEY_USER_GENDER, null)
     fun getUserRole(): String? = sharedPreferences.getString(KEY_USER_ROLE, null)
-    fun getUserBirthDate(): Long? = sharedPreferences.getLong(KEY_USER_BIRTH_DATE, -1)
+    fun getUserBirthDate(): String? = sharedPreferences.getString(KEY_USER_BIRTH_DATE, null)
 }
