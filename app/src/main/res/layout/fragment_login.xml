@@ -160,7 +160,7 @@
             android:layout_marginEnd="24dp"
             android:gravity="center"
             android:text="@string/log_in_skip_and_explore"
-            android:textColor="@color/blue"
+            android:textColor="@drawable/text_view_color_selector"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/image_bottom"
             app:layout_constraintEnd_toEndOf="parent"
