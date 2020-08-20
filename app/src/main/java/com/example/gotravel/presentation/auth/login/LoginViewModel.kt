@@ -1,5 +1,6 @@
 package com.example.gotravel.presentation.auth.login
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gotravel.common.Result
@@ -13,23 +14,45 @@ class LoginViewModel(private val repository: DefaultUserRepository) :
 
     val showProgressBar = SingleLiveEvent<Boolean>()
     val errorMessageEvent = SingleLiveEvent<String>()
-    val navigateToHomeEvent = SingleLiveEvent<Unit>()
+    val successfulLoginEvent = SingleLiveEvent<Unit>()
+    val successfulLogoutEvent = SingleLiveEvent<Unit>()
+    val isUserAuthenticated = MutableLiveData<Boolean>(false)
+
 
     fun loginUser(email: String, password: String) {
         showProgressBar.postValue(true)
         viewModelScope.launch {
-            val result = repository.loginUser(email, password)
-            when(result) {
+            when(repository.loginUser(email, password)) {
                 is Result.Success -> {
                     delay(2000)
                     showProgressBar.postValue(false)
-                    navigateToHomeEvent.call()
+                    isUserAuthenticated.postValue(true)
+                    successfulLoginEvent.call()
                 }
                 is Result.Failure -> {
                     delay(2000)
+                    isUserAuthenticated.postValue(false)
                     errorMessageEvent.postValue("Error has occurred.")
                 }
             }
         }
     }
+
+
+    fun logoutUser() {
+        showProgressBar.postValue(true)
+        viewModelScope.launch {
+            when(repository.logoutUser()) {
+                is Result.Success -> {
+                    delay(2000)
+                    showProgressBar.postValue(false)
+                    isUserAuthenticated.postValue(false)
+                    successfulLogoutEvent.call()
+                }
+                /*is Result.Failure -> {
+                }*/
+            }
+        }
+    }
+
 }

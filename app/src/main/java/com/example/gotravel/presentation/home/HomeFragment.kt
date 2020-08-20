@@ -1,5 +1,6 @@
 package com.example.gotravel.presentation.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gotravel.R
 import com.example.gotravel.common.model.Trip
+import com.example.gotravel.data.AppPreferences
+import com.example.gotravel.data.DefaultUserRepository
+import com.example.gotravel.data.GoTravelDatabase
+import com.example.gotravel.presentation.auth.login.LoginViewModel
+import com.example.gotravel.presentation.auth.login.LoginViewModelFactory
 import com.example.gotravel.presentation.trip_details.TripDetailsFragment
 import com.example.gotravel.utils.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -26,6 +32,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
+    private lateinit var loginViewModel: LoginViewModel
+    private lateinit var loginViewModelFactory: LoginViewModelFactory
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +56,22 @@ class HomeFragment : Fragment() {
     }
 
     private fun initUI() {
+
         viewModel.refreshData()
+
+        val sharedPreferences = requireContext().getSharedPreferences("com.example.gotravel.pref", Context.MODE_PRIVATE)
+        val application = requireNotNull(this.activity).application
+        val dataSource = GoTravelDatabase.invoke(application).userDao()
+        val appPreferences = AppPreferences(sharedPreferences)
+        val repository = DefaultUserRepository(dataSource, appPreferences)
+
+        loginViewModelFactory = LoginViewModelFactory(repository)
+        loginViewModel = ViewModelProvider(requireActivity(), loginViewModelFactory).get(LoginViewModel::class.java)
+
+        loginViewModel.isUserAuthenticated.observe(viewLifecycleOwner, Observer {
+            if (it) text_log_in.visibility = View.GONE
+            else text_log_in.visibility = View.VISIBLE
+        })
     }
 
     private fun setUpTripsAdapter() {
@@ -127,6 +151,11 @@ class HomeFragment : Fragment() {
             image_refresh.startAnimation(anim)
             viewModel.refreshData()
         }
+
+        text_log_in.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeToLogin())
+        }
+
     }
 
     private fun render(state: HomeViewState) {

@@ -1,6 +1,5 @@
 package com.example.gotravel.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.example.gotravel.common.model.User
 import com.example.gotravel.common.Result
 
@@ -25,4 +24,5 @@ interface UserRepository {
     ): Result<User>
 
     suspend fun loginUser(email: String, password: String): Result<User>
+    suspend fun logoutUser(): Result<Unit>
 }

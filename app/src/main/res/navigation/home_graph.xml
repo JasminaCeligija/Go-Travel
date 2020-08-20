@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_graph"
-    app:startDestination="@id/loginFragment"
+    app:startDestination="@id/login"
     tools:ignore="UnusedNavigation">
 
     <include app:graph="@navigation/login_graph" />
@@ -21,16 +21,35 @@
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_home_to_login"
+            app:destination="@id/login"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true" />
         <!--<argument
             android:name="selectedTrip"
             app:argType="com.example.gotravel.common.model.Trip" /> -->
     </fragment>
 
     <fragment
-        android:id="@+id/about_me"
-        android:name="com.example.gotravel.presentation.AboutMeFragment"
-        android:label="fragment_about_me"
-        tools:layout="@layout/fragment_about_me" />
+        android:id="@+id/my_profile"
+        android:name="com.example.gotravel.presentation.about_me.MyProfileFragment"
+        tools:layout="@layout/fragment_my_profile" >
+        <action
+            android:id="@+id/action_my_profile_to_aboutMeFragment"
+            app:destination="@id/aboutMeFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_my_profile_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
 
     <fragment
         android:id="@+id/tripDetailsFragment"
@@ -71,10 +90,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/favourites"
-        android:name="com.example.gotravel.presentation.FavouritesFragment"
+        android:id="@+id/saved_trips"
+        android:name="com.example.gotravel.presentation.SavedTripsFragment"
         android:label="fragment_favourites"
-        tools:layout="@layout/fragment_favourites" />
+        tools:layout="@layout/fragment_saved_trips" />
     <fragment
         android:id="@+id/about_us"
         android:name="com.example.gotravel.presentation.AboutUsFragment"
@@ -114,7 +133,7 @@
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
+        android:id="@+id/login"
         android:name="com.example.gotravel.presentation.auth.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
@@ -127,12 +146,24 @@
             app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_loginFragment_to_home"
-            app:destination="@id/home"/>
+            app:destination="@id/home"
+            app:popUpTo="@id/login"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
         android:name="com.example.gotravel.presentation.auth.create_account.CreateAccountFragment"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" />
+    <fragment
+        android:id="@+id/aboutMeFragment"
+        android:name="com.example.gotravel.presentation.about_me.AboutMeFragment"
+        android:label="fragment_about_me"
+        tools:layout="@layout/fragment_about_me" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.example.gotravel.presentation.about_me.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
 
 </navigation>

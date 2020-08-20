@@ -6,9 +6,9 @@
         android:title="@string/menu_faq" />
 
     <item
-        android:id="@+id/favourites"
+        android:id="@+id/saved_trips"
         android:icon="@drawable/menu_favourites_selector"
-        android:title="@string/menu_favourites" />
+        android:title="@string/menu_saved_trips" />
 
     <item
         android:id="@+id/home"
@@ -21,7 +21,8 @@
         android:title="@string/menu_about_us" />
 
     <item
-        android:id="@+id/about_me"
+        android:id="@+id/my_profile"
         android:icon="@drawable/menu_user_selector"
-        android:title="@string/menu_about_me" />
+        android:title="@string/menu_my_profile" />
+
 </menu>

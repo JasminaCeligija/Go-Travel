@@ -1,28 +1,36 @@
 package com.example.gotravel
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.example.gotravel.data.AppPreferences
+import com.example.gotravel.data.DefaultUserRepository
+import com.example.gotravel.data.GoTravelDatabase
+import com.example.gotravel.presentation.auth.login.LoginViewModel
+import com.example.gotravel.presentation.auth.login.LoginViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModelFactory: LoginViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //setSupportActionBar(toolbar)
-
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setUpBottomNavMenu(navController)
-        //   setUpActionBar(navController)
 
+        setUpViewModel()
     }
 
     private fun setUpBottomNavMenu(navController: NavController) {
@@ -32,8 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment,
+                R.id.login,
                 R.id.createAccountFragment,
+                R.id.changePasswordFragment,
+                R.id.aboutMeFragment,
                 R.id.tripDetailsFragment,
                 R.id.seeTripPlanFragment,
                 R.id.readReviewsFragment,
@@ -42,6 +52,22 @@ class MainActivity : AppCompatActivity() {
                 else -> showBottomNavigationBar()
             }
         }
+    }
+
+    private fun setUpViewModel() {
+        val sharedPreferences =
+            applicationContext.getSharedPreferences("com.example.gotravel.pref", Context.MODE_PRIVATE)
+        val application = this.application
+        val dataSource = GoTravelDatabase.invoke(application).userDao()
+        val appPreferences = AppPreferences(sharedPreferences)
+        val repository = DefaultUserRepository(dataSource, appPreferences)
+
+        viewModelFactory = LoginViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
+
+        viewModel.isUserAuthenticated.observe(this, Observer {
+            hideOrShowMenuOptions(it)
+        })
     }
 
     private fun setUpActionBar(navController: NavController) {
@@ -67,8 +93,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    /*override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(drawer)
-    } */
+    private fun hideOrShowMenuOptions(isUserAuthenticated: Boolean) {
 
+        val menu = bottom_navigation.menu
+        if (isUserAuthenticated) {
+            menu.findItem(R.id.my_profile).isVisible = true
+            menu.findItem(R.id.saved_trips).isVisible = true
+        }
+        else {
+            menu.findItem(R.id.my_profile).isVisible = false
+            menu.findItem(R.id.saved_trips).isVisible = false
+        }
+    }
 }

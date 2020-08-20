@@ -9,10 +9,16 @@
 
     <!-- Navigation bar -->
     <string name="menu_faq">FAQ</string>
-    <string name="menu_favourites">Favourites</string>
+    <string name="menu_saved_trips">Saved</string>
     <string name="menu_home">Home</string>
-    <string name="menu_about_us">About Us</string>
-    <string name="menu_about_me">About me</string>
+    <string name="menu_about_us">About us</string>
+    <string name="menu_my_profile">My profile</string>
+
+    <!-- Home -->
+    <string name="home_log_in"><font color="#6cb7d7"><u>LOG IN</u></font> ANY TIME YOU WANT</string>
+    <string name="home_title">Let\'s Explore</string>
+    <string name="home_search_hint">Where do you want to go?</string>
+    <string name="home_sort_by">Sort by:</string>
 
     <!-- Trip details -->
     <string name="trip_details_see_trip_plan">See trip plan</string>
@@ -52,6 +58,9 @@
     <string name="about_us_unique_title">What makes us unique?</string>
     <string name="about_us_unique">Many agencies force you to deal with multiple people throughout the booking process, making it disjointed and impersonal. At GoTravel you will deal with the same travel expert from the moment of initial contact until you are safely back at home. Unlike many other agencies who do their business solely online or even from abroad, we still keep regular office hours and are delighted when with planned visits or drop-ins to our West Roxbury office.</string>
 
+    <!-- My profile -->
+    <string name="my_profile_toolbar_title">My profile</string>
+
     <!-- FAQ -->
     <string name="faq_toolbar_title">Frequently asked questions</string>
     <string name="faq_need_help">Need help ?</string>
@@ -74,10 +83,24 @@
     <!-- Log in -->
     <string name="log_in_title">LOG IN</string>
     <string name="log_in_subtitle">You need to be logged in to book your trip</string>
-    <string name="log_in_create_account">Don\'t have an account? <b>Sign up</b></string>
+    <string name="log_in_create_account">Don\'t have an account? <u><b>Sign up</b></u></string>
     <string name="log_in_button">Log in</string>
     <string name="log_in_skip_and_explore"><u>Skip and Explore</u></string>
 
+    <!-- Log out -->
+    <string name="log_out_title">Log out</string>
+    <string name="log_out_message">Are you sure you want to log out?</string>
+    <string name="log_out_yes">YES</string>
+    <string name="log_out_no">NO</string>
+
+    <!-- Change password -->
+    <string name="change_password_toolbar_title">Change password</string>
+    <string name="change_password_old_password">Old password</string>
+    <string name="change_password_new_password">New password</string>
+    <string name="change_password_retype_password">Retype password</string>
+    <string name="change_password_button_text">Change password</string>
+    <string name="change_password_success_message">Successfully changed password.</string>
+    <string name="change_password_error_message">Error has occurred.</string>
 
     <string-array name="SearchFilterOptions">
         <item>Popularity</item>
@@ -92,6 +115,5 @@
         <item>Woman</item>
         <item>Other</item>
     </string-array>
-
 
 </resources>

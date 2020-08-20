@@ -56,7 +56,7 @@ class FAQFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        button_ask_us.setOnClickListener {
+        text_ask_us.setOnClickListener {
             findNavController().navigate(FAQFragmentDirections.actionFaqToAskAQuestionFragment())
         }
     }

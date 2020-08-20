@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:text="Let's Explore"
+        android:text="@string/home_title"
         android:textColor="@color/dark"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -22,22 +22,33 @@
         app:layout_constraintStart_toStartOf="@+id/layout_search"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/text_log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/home_log_in"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/text_title"
+        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_search"
         style="@style/Widget.TextInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/text_input_layout_rounded_shape"
         android:elevation="10dp"
-        android:hint="Where do you want to go?"
+        android:hint="@string/home_search_hint"
         android:padding="1dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title">
+        app:layout_constraintTop_toBottomOf="@+id/text_log_in">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_search"
@@ -72,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
-        android:text="Sort by:"
+        android:text="@string/home_sort_by"
         android:textColor="@color/dark"
         android:textSize="16sp"
         android:textStyle="bold"

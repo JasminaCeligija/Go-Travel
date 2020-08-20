@@ -36,6 +36,12 @@ class DefaultUserRepository(
         return@withContext Result.Failure(Error.UnauthorizedError("User with with this email doesn't exists."))
     }
 
+    override suspend fun logoutUser() = withContext(Dispatchers.IO) {
+        user = null
+        return@withContext Result.Success(Unit)
+    }
+
+
     private fun saveUserDetails(user: User): Boolean {
         this.user = user
         appPreferences.setUserId(user.id)

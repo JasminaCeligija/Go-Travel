@@ -2,11 +2,9 @@ package com.example.gotravel.presentation.auth.login
 
 import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +15,7 @@ import com.example.gotravel.data.DefaultUserRepository
 import com.example.gotravel.data.GoTravelDatabase
 import com.example.gotravel.utils.closeKeyboard
 import com.example.gotravel.utils.isValidEmail
-import com.google.android.material.snackbar.Snackbar
+import com.example.gotravel.utils.showSnackbar
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
@@ -43,10 +41,10 @@ class LoginFragment : Fragment() {
         val repository = DefaultUserRepository(dataSource, appPreferences)
 
         viewModelFactory = LoginViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
-
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(LoginViewModel::class.java)
         setListeners()
         setObservers()
+     //   findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHome())
     }
 
     private fun setObservers() {
@@ -57,10 +55,10 @@ class LoginFragment : Fragment() {
 
         viewModel.errorMessageEvent.observe(viewLifecycleOwner, Observer {
             hideProgressBar()
-            showSnackbar(it)
+            showSnackbar(it, login_parent_layout)
         })
 
-        viewModel.navigateToHomeEvent.observe(viewLifecycleOwner, Observer {
+        viewModel.successfulLoginEvent.observe(viewLifecycleOwner, Observer {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHome())
         })
     }
@@ -90,24 +88,16 @@ class LoginFragment : Fragment() {
     private fun loginUser() {
         val email = edit_text_email.text.toString()
         val password = edit_text_password.text.toString()
-        if (email.isValidEmail()) {
+        //if (email.isValidEmail()) {
             clearFields()
-            viewModel.loginUser(email, password)
-        }
-        else showSnackbar("Invalid email address.")
+            viewModel.loginUser("or@gmail.com", "000000")
+        //}
+        //else showSnackbar("Invalid email address.", login_parent_layout)
     }
 
     private fun clearFields() {
         closeKeyboard(requireActivity())
         edit_text_email.setText("")
         edit_text_password.setText("")
-    }
-
-    private fun showSnackbar(message: String) {
-        val snackBar = Snackbar.make(login_parent_layout, message, Snackbar.LENGTH_LONG)
-        val mainTextView = snackBar.view.findViewById<View>(R.id.snackbar_text) as TextView
-        mainTextView.gravity = Gravity.CENTER_HORIZONTAL
-        mainTextView.textAlignment = View.TEXT_ALIGNMENT_CENTER
-        snackBar.show()
     }
 }
