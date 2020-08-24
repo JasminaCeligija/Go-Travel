@@ -29,6 +29,10 @@ class Toolbar @JvmOverloads constructor(
         }
     }
 
+    fun setToolbarTitle(title: String) {
+        text_question.text = title
+    }
+
     fun onBackButtonClicked(clickListener: () -> Unit) {
         image_back.setOnClickListener {
             clickListener()

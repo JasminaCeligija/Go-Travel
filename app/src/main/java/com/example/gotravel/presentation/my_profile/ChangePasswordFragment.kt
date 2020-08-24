@@ -1,4 +1,4 @@
-package com.example.gotravel.presentation.about_me
+package com.example.gotravel.presentation.my_profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

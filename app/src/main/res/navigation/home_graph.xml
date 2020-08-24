@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/my_profile"
-        android:name="com.example.gotravel.presentation.about_me.MyProfileFragment"
+        android:name="com.example.gotravel.presentation.my_profile.MyProfileFragment"
         tools:layout="@layout/fragment_my_profile">
         <action
             android:id="@+id/action_my_profile_to_aboutMeFragment"
@@ -130,7 +130,15 @@
         android:id="@+id/bookNowFragment"
         android:name="com.example.gotravel.presentation.BookNowFragment"
         android:label="fragment_book_now"
-        tools:layout="@layout/fragment_book_now" />
+        tools:layout="@layout/fragment_book_now" >
+        <action
+            android:id="@+id/action_bookNowFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/faq"
         android:name="com.example.gotravel.presentation.faq.FAQFragment"
@@ -169,13 +177,50 @@
         tools:layout="@layout/fragment_create_account" />
     <fragment
         android:id="@+id/aboutMeFragment"
-        android:name="com.example.gotravel.presentation.about_me.AboutMeFragment"
+        android:name="com.example.gotravel.presentation.my_profile.AboutMeFragment"
         android:label="fragment_about_me"
         tools:layout="@layout/fragment_about_me" />
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.example.gotravel.presentation.about_me.ChangePasswordFragment"
+        android:name="com.example.gotravel.presentation.my_profile.ChangePasswordFragment"
         android:label="fragment_change_password"
         tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.gotravel.presentation.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_messageFragment"
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.gotravel.presentation.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <action
+            android:id="@+id/action_messageFragment_to_home"
+            app:destination="@id/home"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_messageFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment"
+            app:popUpTo="@id/paymentFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
 </navigation>

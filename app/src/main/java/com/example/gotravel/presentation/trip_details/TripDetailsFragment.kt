@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.gotravel.R
 import com.example.gotravel.common.model.Trip
+import com.example.gotravel.presentation.BookNowFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_trip_details.*
 import kotlin.math.abs
@@ -43,7 +44,6 @@ class TripDetailsFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(TripDetailsViewModel::class.java)
 
-        setTripDaysAdapter()
         setViewPager()
         setListeners()
     }
@@ -69,20 +69,6 @@ class TripDetailsFragment : Fragment() {
             .show()
     }
 
-
-    private fun setTripDaysAdapter() {
-
-        /* recycler_view_trip_days.apply {
-             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-             itemAnimator = DefaultItemAnimator()
-             setHasFixedSize(true)
-             adapter = TripPlanAdapter(
-                 tripDayClickCallback = ::dummy
-             )
-         } */
-    }
-
-
     private fun setListeners() {
 
         button_see_trip_plan.setOnClickListener {
@@ -98,20 +84,18 @@ class TripDetailsFragment : Fragment() {
         }
 
         button_book_now.setOnClickListener {
-            findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToBookNowFragment())
+            findNavController().navigate(
+                R.id.action_tripDetailsFragment_to_bookNowFragment,
+                BookNowFragment.createBundle(
+                    selectedTrip
+                )
+            )
         }
-
-        /*button_save_trip.setOnClickListener {
-            if (button_save_trip.drawable.constantState == ContextCompat.getDrawable(requireContext(), R.drawable.ic_heart_outlined)?.constantState)
-                button_save_trip.setImageResource(R.drawable.ic_heart_filled_red)
-            else button_save_trip.setImageResource(R.drawable.ic_heart_outlined)
-        } */
 
         image_back.setOnClickListener {
             findNavController().popBackStack()
         }
     }
-
 
     private fun setViewPager() {
 

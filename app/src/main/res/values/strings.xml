@@ -26,7 +26,7 @@
     <string name="trip_details_contact_us">Contact us</string>
     <string name="trip_details_save_trip">Save trip</string>
     <string name="trip_details_price">Price: $%1$s</string>
-    <string name="trip_details_trip_information">Trip information</string>
+    <string name="trip_details_trip_information">Short info about trip</string>
     <string name="trip_details_days">days</string>
     <string name="trip_details_button_text">Book now</string>
 
@@ -101,6 +101,21 @@
     <string name="change_password_button_text">Change password</string>
     <string name="change_password_success_message">Successfully changed password.</string>
     <string name="change_password_error_message">Error has occurred.</string>
+
+    <!-- About me -->
+    <string name="about_me_toolbar_title">About me</string>
+    <string name="about_me_button_text">Save changes</string>
+    <string name="about_me_change_photo">Change photo</string>
+
+
+    <!-- Message screen -->
+    <string name="message_successful_reservation">Your reservation has been confirmed!\nCheck your email for more details.</string>
+    <string name="message_title">Thank You\nFor Traveling With Us</string>
+    <string name="message_subtitle">We are dedicated to giving you the best experience possible. If you have any questions feel free to get in touch.</string>
+    <string name="message_button">Ok</string>
+
+    <!-- Book now -->
+    <string name="book_trip_toolbar_title">Book trip</string>
 
     <string-array name="SearchFilterOptions">
         <item>Popularity</item>

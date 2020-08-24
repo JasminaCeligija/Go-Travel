@@ -55,6 +55,19 @@ class DefaultUserRepository(
         return true
     }
 
+    fun getUserFromSharedPreferences(): User {
+
+        return User(
+            appPreferences.getUserFirstName() ?: "",
+            appPreferences.getUserLastName() ?: "",
+            appPreferences.getUserEmail() ?: "",
+            appPreferences.getUserPassword() ?: "",
+            appPreferences.getUserGender() ?: "",
+            appPreferences.getUserBirthDate() ?: "",
+            appPreferences.getUserRole() ?: ""
+        )
+    }
+
 
     /*override fun isUserAuthenticated(): Boolean {
         return user != null

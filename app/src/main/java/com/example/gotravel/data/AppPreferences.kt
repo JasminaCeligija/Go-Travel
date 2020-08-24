@@ -50,6 +50,8 @@ class AppPreferences(private val sharedPreferences: SharedPreferences) {
     fun getUserId(): String? = sharedPreferences.getString(KEY_USER_ID, null)
     fun getUserFirstName(): String? = sharedPreferences.getString(KEY_USER_FIRST_NAME, null)
     fun getUserLastName(): String? = sharedPreferences.getString(KEY_USER_LAST_NAME, null)
+    fun getUserEmail(): String? = sharedPreferences.getString(KEY_USER_EMAIL, null)
+    fun getUserPassword(): String? = sharedPreferences.getString(KEY_USER_PASSWORD, null)
     fun getUserGender(): String? = sharedPreferences.getString(KEY_USER_GENDER, null)
     fun getUserRole(): String? = sharedPreferences.getString(KEY_USER_ROLE, null)
     fun getUserBirthDate(): String? = sharedPreferences.getString(KEY_USER_BIRTH_DATE, null)

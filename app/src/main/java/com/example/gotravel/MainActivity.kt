@@ -48,6 +48,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.seeTripPlanFragment,
                 R.id.readReviewsFragment,
                 R.id.askAQuestionFragment,
+                R.id.bookNowFragment,
+                R.id.paymentFragment,
+                R.id.messageFragment,
                 R.id.bookNowFragment -> hideBottomNavigationBar()
                 else -> showBottomNavigationBar()
             }
@@ -56,7 +59,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpViewModel() {
         val sharedPreferences =
-            applicationContext.getSharedPreferences("com.example.gotravel.pref", Context.MODE_PRIVATE)
+            applicationContext.getSharedPreferences(
+                "com.example.gotravel.pref",
+                Context.MODE_PRIVATE
+            )
         val application = this.application
         val dataSource = GoTravelDatabase.invoke(application).userDao()
         val appPreferences = AppPreferences(sharedPreferences)
@@ -99,8 +105,7 @@ class MainActivity : AppCompatActivity() {
         if (isUserAuthenticated) {
             menu.findItem(R.id.my_profile).isVisible = true
             menu.findItem(R.id.saved_trips).isVisible = true
-        }
-        else {
+        } else {
             menu.findItem(R.id.my_profile).isVisible = false
             menu.findItem(R.id.saved_trips).isVisible = false
         }

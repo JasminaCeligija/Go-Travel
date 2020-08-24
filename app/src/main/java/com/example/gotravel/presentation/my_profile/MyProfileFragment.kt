@@ -1,4 +1,4 @@
-package com.example.gotravel.presentation.about_me
+package com.example.gotravel.presentation.my_profile
 
 import android.content.Context
 import android.os.Bundle
@@ -16,6 +16,7 @@ import com.example.gotravel.data.GoTravelDatabase
 import com.example.gotravel.presentation.auth.login.LoginViewModel
 import com.example.gotravel.presentation.auth.login.LoginViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import kotlinx.android.synthetic.main.fragment_my_profile.*
 
 
@@ -49,6 +50,10 @@ class MyProfileFragment : Fragment() {
     }
 
     private fun setListeners() {
+
+        toolbar.image_back.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         layout_settings.setOnClickListener {
             findNavController().navigate(MyProfileFragmentDirections.actionMyProfileToAboutMeFragment())

@@ -14,7 +14,6 @@ import kotlinx.coroutines.withContext
 
 class HomeViewModel : ViewModel() {
 
-
     val state: MutableLiveData<HomeViewState> = MutableLiveData(HomeViewState())
 
     init {
@@ -270,9 +269,9 @@ class HomeViewModel : ViewModel() {
                     R.drawable.img_bali_2,
                     R.drawable.img_bali_3,
                     R.drawable.img_bali_4,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy
+                    R.drawable.img_bali_5,
+                    R.drawable.img_bali_6,
+                    R.drawable.img_bali_7
                 )
             )
         )
@@ -299,9 +298,9 @@ class HomeViewModel : ViewModel() {
                     R.drawable.img_bali_2,
                     R.drawable.img_bali_3,
                     R.drawable.img_bali_4,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy
+                    R.drawable.img_bali_5,
+                    R.drawable.img_bali_6,
+                    R.drawable.img_bali_7
                 )
             ),
             Trip(
@@ -485,9 +484,9 @@ class HomeViewModel : ViewModel() {
                     R.drawable.img_bali_2,
                     R.drawable.img_bali_3,
                     R.drawable.img_bali_4,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy
+                    R.drawable.img_bali_5,
+                    R.drawable.img_bali_6,
+                    R.drawable.img_bali_7
                 )
             ),
             Trip(
@@ -624,9 +623,9 @@ class HomeViewModel : ViewModel() {
                     R.drawable.img_bali_2,
                     R.drawable.img_bali_3,
                     R.drawable.img_bali_4,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy
+                    R.drawable.img_bali_5,
+                    R.drawable.img_bali_6,
+                    R.drawable.img_bali_7
                 )
             )
         )
@@ -653,9 +652,9 @@ class HomeViewModel : ViewModel() {
                     R.drawable.img_bali_2,
                     R.drawable.img_bali_3,
                     R.drawable.img_bali_4,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy,
-                    R.drawable.img_dummy
+                    R.drawable.img_bali_5,
+                    R.drawable.img_bali_6,
+                    R.drawable.img_bali_7
                 )
             ),
             Trip(

@@ -24,7 +24,7 @@ class LoginViewModel(private val repository: DefaultUserRepository) :
         viewModelScope.launch {
             when(repository.loginUser(email, password)) {
                 is Result.Success -> {
-                    delay(2000)
+                    delay(200)
                     showProgressBar.postValue(false)
                     isUserAuthenticated.postValue(true)
                     successfulLoginEvent.call()
