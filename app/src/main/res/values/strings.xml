@@ -116,6 +116,13 @@
 
     <!-- Book now -->
     <string name="book_trip_toolbar_title">Book trip</string>
+    <string name="book_now_num_of_people_hint">Enter number of people</string>
+    <string name="book_now_enter_coupon_code">Enter coupon code</string>
+    <string name="book_now_coupon_code_instruction">Make sure you apply the coupon before you book, and keep in mind that if you cancel a reservation, the coupon can’t be used again.</string>
+    <string name="book_now_button_text">Next</string>
+
+    <!--Payment -->
+
 
     <string-array name="SearchFilterOptions">
         <item>Popularity</item>

@@ -58,7 +58,7 @@ class AboutMeFragment : Fragment() {
     private fun setListeners() {
 
         toolbar.image_back.setOnClickListener {
-            closeKeyboard(requireActivity())
+            closeKeyboard(requireActivity()                                                     )
             findNavController().popBackStack()
         }
 
