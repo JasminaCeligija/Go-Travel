@@ -23,6 +23,7 @@ import com.example.gotravel.common.model.Trip
 import com.example.gotravel.data.AppPreferences
 import com.example.gotravel.data.DefaultUserRepository
 import com.example.gotravel.data.GoTravelDatabase
+import com.example.gotravel.presentation.auth.login.LoginNavigationState
 import com.example.gotravel.presentation.auth.login.LoginViewModel
 import com.example.gotravel.presentation.auth.login.LoginViewModelFactory
 import com.example.gotravel.presentation.trip_details.TripDetailsFragment
@@ -68,9 +69,17 @@ class HomeFragment : Fragment() {
         loginViewModelFactory = LoginViewModelFactory(repository)
         loginViewModel = ViewModelProvider(requireActivity(), loginViewModelFactory).get(LoginViewModel::class.java)
 
-        loginViewModel.isUserAuthenticated.observe(viewLifecycleOwner, Observer {
-            if (it) text_log_in.visibility = View.GONE
-            else text_log_in.visibility = View.VISIBLE
+        loginViewModel.authenticatedUser.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                text_log_in.visibility = View.GONE
+                if (it.role == "admin")
+                    floating_button_add_new_trip.visibility = View.VISIBLE
+                else floating_button_add_new_trip.visibility = View.GONE
+            }
+            else {
+                text_log_in.visibility = View.VISIBLE
+                floating_button_add_new_trip.visibility = View.GONE
+            }
         })
     }
 
@@ -153,9 +162,12 @@ class HomeFragment : Fragment() {
         }
 
         text_log_in.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeToLogin())
+            findNavController().navigate(HomeFragmentDirections.actionHomeToLogin(LoginNavigationState.NavigatedFromHome))
         }
 
+        floating_button_add_new_trip.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeToAddTripFragment())
+        }
     }
 
     private fun render(state: HomeViewState) {

@@ -1,126 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/home_title"
-        android:textColor="@color/dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/image_refresh"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/layout_search"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_log_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/home_log_in"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/text_title"
-        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/home_title"
+            android:textColor="@color/dark"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/image_refresh"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/layout_search"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_search"
-        style="@style/Widget.TextInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/text_input_layout_rounded_shape"
-        android:elevation="10dp"
-        android:hint="@string/home_search_hint"
-        android:padding="1dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_log_in">
+        <TextView
+            android:id="@+id/text_log_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/home_log_in"
+            android:textSize="14sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/text_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_search"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_search"
+            style="@style/Widget.TextInputLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="46dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:singleLine="true"
-            android:textSize="14sp" />
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/text_input_layout_rounded_shape"
+            android:elevation="10dp"
+            android:hint="@string/home_search_hint"
+            android:padding="1dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_log_in">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="46dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:singleLine="true"
+                android:textSize="14sp" />
 
-    <ImageView
-        android:id="@+id/image_search"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="10dp"
-        android:padding="3dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@+id/layout_search"
-        app:layout_constraintEnd_toEndOf="@+id/layout_search"
-        app:layout_constraintTop_toTopOf="@+id/layout_search" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/text_sort_by"
+        <ImageView
+            android:id="@+id/image_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="10dp"
+            android:padding="3dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="@+id/layout_search"
+            app:layout_constraintEnd_toEndOf="@+id/layout_search"
+            app:layout_constraintTop_toTopOf="@+id/layout_search" />
+
+        <TextView
+            android:id="@+id/text_sort_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/home_sort_by"
+            android:textColor="@color/dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/spinner_filter_options"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/layout_search"
+            app:layout_constraintTop_toBottomOf="@+id/layout_search" />
+
+        <Spinner
+            android:id="@+id/spinner_filter_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_sort_by"
+            app:layout_constraintEnd_toEndOf="@+id/layout_search"
+            app:layout_constraintTop_toTopOf="@+id/text_sort_by" />
+
+        <ImageView
+            android:id="@+id/image_refresh"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/ic_refresh"
+            app:layout_constraintBottom_toBottomOf="@+id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_trips"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_sort_by" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_button_add_new_trip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/home_sort_by"
-        android:textColor="@color/dark"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/spinner_filter_options"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/layout_search"
-        app:layout_constraintTop_toBottomOf="@+id/layout_search" />
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/ic_plus" />
 
-    <Spinner
-        android:id="@+id/spinner_filter_options"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_sort_by"
-        app:layout_constraintEnd_toEndOf="@+id/layout_search"
-        app:layout_constraintTop_toTopOf="@+id/text_sort_by" />
-
-    <ImageView
-        android:id="@+id/image_refresh"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="40dp"
-        android:src="@drawable/ic_refresh"
-        app:layout_constraintBottom_toBottomOf="@+id/text_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_title" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_trips"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_sort_by" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

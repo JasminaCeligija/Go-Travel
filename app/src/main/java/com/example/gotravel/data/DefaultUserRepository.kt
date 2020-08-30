@@ -15,15 +15,16 @@ class DefaultUserRepository(
 
     override var user: User? = null
 
-    override suspend fun createUser(
+    override suspend fun createOrUpdateUser(
         firstName: String,
         lastName: String,
         email: String,
         password: String,
         gender: String,
-        birthDate: String
+        birthDate: String,
+        role: String
     ): Result<User> = withContext(Dispatchers.IO) {
-        val newUser = User(firstName, lastName, email, password, gender, birthDate, "user")
+        val newUser = User(firstName, lastName, email, password, gender, birthDate, role)
         userDao.insertOrUpdateUser(newUser)
         return@withContext Result.Success(newUser)
     }
@@ -41,8 +42,7 @@ class DefaultUserRepository(
         return@withContext Result.Success(Unit)
     }
 
-
-    private fun saveUserDetails(user: User): Boolean {
+    fun saveUserDetails(user: User): Boolean {
         this.user = user
         appPreferences.setUserId(user.id)
         appPreferences.setUserFirstName(user.firstName)
@@ -56,7 +56,6 @@ class DefaultUserRepository(
     }
 
     fun getUserFromSharedPreferences(): User {
-
         return User(
             appPreferences.getUserFirstName() ?: "",
             appPreferences.getUserLastName() ?: "",
@@ -67,43 +66,4 @@ class DefaultUserRepository(
             appPreferences.getUserRole() ?: ""
         )
     }
-
-
-    /*override fun isUserAuthenticated(): Boolean {
-        return user != null
-    }
-
-    override suspend fun loginUser(email: String, password: String) = withContext(Dispatchers.IO) {
-
-        //TODO: implement API request, User should be UserResource...
-        when {
-            email == "orion@gmail.com" && password == "000000" -> {
-                user = User(uuid = "1", email = email, password = password)
-                return@withContext Result.Success(user!!)
-            }
-            else -> {
-                return@withContext Result.Failure(Error.InvalidDataError("User with this email and password does not exits."))
-            }
-        }
-    }
-
-    override suspend fun createUser(
-        firstName: String,
-        lastName: String,
-        email: String,
-        password: String,
-        birthDate: Long
-    ) = withContext(Dispatchers.IO) {
-        return@withContext Result.Success(getMockedUser())
-    }
-
-    private fun getMockedUser(): User {
-        return User("1", "Orion", "Team", "orion@gmail.com", "0000000", "Male", 1111111)
-    }
-
-    override suspend fun logoutUser() = withContext(Dispatchers.IO) {
-        user = null
-        return@withContext Result.Success(Unit)
-    } */
-
 }

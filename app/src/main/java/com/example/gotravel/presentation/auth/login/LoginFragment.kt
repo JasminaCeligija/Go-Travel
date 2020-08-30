@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.gotravel.R
 import com.example.gotravel.data.AppPreferences
 import com.example.gotravel.data.DefaultUserRepository
@@ -22,6 +23,8 @@ class LoginFragment : Fragment() {
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
+
+    private val args by navArgs<LoginFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +47,6 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(LoginViewModel::class.java)
         setListeners()
         setObservers()
-     //   findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHome())
     }
 
     private fun setObservers() {
@@ -59,7 +61,9 @@ class LoginFragment : Fragment() {
         })
 
         viewModel.successfulLoginEvent.observe(viewLifecycleOwner, Observer {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHome())
+            if (args.loginNavigationState == LoginNavigationState.NavigatedFromTripDetails)
+                findNavController().popBackStack()
+            else findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHome())
         })
     }
 
@@ -88,16 +92,10 @@ class LoginFragment : Fragment() {
     private fun loginUser() {
         val email = edit_text_email.text.toString()
         val password = edit_text_password.text.toString()
-        //if (email.isValidEmail()) {
-            clearFields()
-            viewModel.loginUser("or@gmail.com", "000000")
-        //}
-        //else showSnackbar("Invalid email address.", login_parent_layout)
-    }
-
-    private fun clearFields() {
-        closeKeyboard(requireActivity())
-        edit_text_email.setText("")
-        edit_text_password.setText("")
+        if (email.isValidEmail()) {
+            closeKeyboard(requireActivity())
+            viewModel.loginUser(email, password)
+        }
+        else showSnackbar("Invalid email address.", login_parent_layout)
     }
 }

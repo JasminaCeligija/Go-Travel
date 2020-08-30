@@ -76,7 +76,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_first_name_hint">
 
@@ -98,7 +97,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_last_name_hint">
 
@@ -120,7 +118,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_email_hint">
 
@@ -208,7 +205,7 @@
                         android:backgroundTint="@color/white"
                         android:elevation="1dp"
                         android:gravity="center_vertical|end"
-                        android:minWidth="90dp"
+                        android:minWidth="110dp"
                         android:text="AUG 27, 2020"
                         android:textColor="@color/dark"
                         android:textSize="14sp"

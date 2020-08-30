@@ -4,7 +4,456 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.PaymentFragment">
+    tools:context=".presentation.payment.PaymentFragment">
+
+    <com.example.gotravel.presentation.custom_views.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toolbar_title="@string/payment_toolbar_title" >
+
+        <ProgressBar
+            android:id="@+id/progressBar_book_a_trip"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.example.gotravel.presentation.custom_views.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_payment_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/white_rounded_shape"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/text_num_od_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="10"
+            app:layout_constraintEnd_toStartOf="@+id/text_days"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="days trip to"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="@+id/text_num_od_days"
+            app:layout_constraintEnd_toStartOf="@+id/text_trip_name"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_num_od_days"
+            app:layout_constraintTop_toTopOf="@+id/text_num_od_days" />
+
+        <TextView
+            android:id="@+id/text_trip_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="Bali, Indonesia"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="@+id/text_days"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_days"
+            app:layout_constraintTop_toTopOf="@+id/text_days" />
+
+        <TextView
+            android:id="@+id/text_num_of_people_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Number of people:"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toStartOf="@+id/text_num_of_people"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_num_od_days" />
+
+        <TextView
+            android:id="@+id/text_num_of_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="2"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="@+id/text_num_of_people_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_num_of_people_title"
+            app:layout_constraintTop_toTopOf="@+id/text_num_of_people_title" />
+
+        <TextView
+            android:id="@+id/text_total_amount_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Total amount: "
+            android:textAllCaps="true"
+            android:textColor="@color/dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text_total_amount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_num_of_people_title" />
+
+        <TextView
+            android:id="@+id/text_total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/text_total_amount_title"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_total_amount_title"
+            app:layout_constraintTop_toTopOf="@+id/text_total_amount_title" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" $ "
+            android:textColor="@color/dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/text_total_amount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_total_amount"
+            app:layout_constraintTop_toTopOf="@+id/text_total_amount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/button_finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_payment_summary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_card_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/payment_card_information"
+                android:textAllCaps="true"
+                android:textColor="@color/dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_name_on_card"
+                style="@style/Widget.TextInputLayout.GradientLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/payment_name_on_card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_card_info">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_name_on_card"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_credit_card_number"
+                style="@style/Widget.TextInputLayout.GradientLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/payment_credit_card_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_name_on_card">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_credit_card_number"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberSigned"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_credit_security_code"
+                style="@style/Widget.TextInputLayout.GradientLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/payment_security_code"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_credit_card_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_security_code"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberSigned"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/image_credit_cards"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_credit_cards"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_expires" />
+
+            <TextView
+                android:id="@+id/text_expires"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/payment_expires"
+                android:textColor="@color/dark"
+                app:layout_constraintEnd_toStartOf="@+id/text_mm"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_credit_security_code" />
+
+            <LinearLayout
+                android:id="@+id/layout_spinner_months"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_blue_borders_background"
+                android:gravity="end"
+                android:minWidth="90dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/text_mm"
+                app:layout_constraintEnd_toStartOf="@+id/text_slash"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/text_mm"
+                app:layout_constraintTop_toTopOf="@+id/text_mm">
+
+                <Spinner
+                    android:id="@+id/spinner_months"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="2dp"
+                    android:gravity="start"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="30dp"
+                    android:paddingBottom="0dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="MM"
+                android:textColor="@color/dark"
+                app:layout_constraintBottom_toBottomOf="@+id/text_expires"
+                app:layout_constraintEnd_toStartOf="@+id/layout_spinner_months"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/text_expires"
+                app:layout_constraintTop_toTopOf="@+id/text_expires" />
+
+            <TextView
+                android:id="@+id/text_slash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textColor="@color/dark"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_spinner_months"
+                app:layout_constraintEnd_toStartOf="@+id/text_yy"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/layout_spinner_months"
+                app:layout_constraintTop_toTopOf="@+id/layout_spinner_months" />
+
+            <TextView
+                android:id="@+id/text_yy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YY"
+                android:textColor="@color/dark"
+                app:layout_constraintBottom_toBottomOf="@+id/text_slash"
+                app:layout_constraintEnd_toStartOf="@+id/layout_spinner_year"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/text_slash"
+                app:layout_constraintTop_toTopOf="@+id/text_slash" />
+
+            <LinearLayout
+                android:id="@+id/layout_spinner_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:background="@drawable/rounded_blue_borders_background"
+                android:gravity="end"
+                android:minWidth="90dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/text_yy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/text_yy"
+                app:layout_constraintTop_toTopOf="@+id/text_yy">
+
+                <Spinner
+                    android:id="@+id/spinner_years"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="2dp"
+                    android:gravity="start"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="30dp"
+                    android:paddingBottom="0dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_billing_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/payment_billing_address"
+                android:textAllCaps="true"
+                android:textColor="@color/dark"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_credit_cards" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_street_address"
+                style="@style/Widget.TextInputLayout.GradientLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/payment_street_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_billing_address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_street_address"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_city"
+                style="@style/Widget.TextInputLayout.GradientLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/payment_city"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_street_address">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_city"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_zip_code"
+                style="@style/Widget.TextInputLayout.GradientLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/payment_zip_code"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_city">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_zip_code"
+                    style="@style/CustomEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberSigned"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/button_finish"
@@ -14,11 +463,10 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp"
-        android:text="Finish"
+        android:text="@string/payment_button_text"
         android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

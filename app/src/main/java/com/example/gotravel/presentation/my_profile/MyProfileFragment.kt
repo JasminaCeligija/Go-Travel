@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.gotravel.R
+import com.example.gotravel.common.model.User
 import com.example.gotravel.data.AppPreferences
 import com.example.gotravel.data.DefaultUserRepository
 import com.example.gotravel.data.GoTravelDatabase
@@ -24,6 +25,8 @@ class MyProfileFragment : Fragment() {
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
+    private lateinit var aboutMeViewModel: AboutMeViewModel
+    private lateinit var aboutMeViewModelFactory: AboutMeViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +47,9 @@ class MyProfileFragment : Fragment() {
 
         viewModelFactory = LoginViewModelFactory(repository)
         viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(LoginViewModel::class.java)
+
+        aboutMeViewModelFactory = AboutMeViewModelFactory(repository)
+        aboutMeViewModel = ViewModelProvider(requireActivity(), aboutMeViewModelFactory).get(AboutMeViewModel::class.java)
 
         setListeners()
         setObservers()
@@ -77,7 +83,32 @@ class MyProfileFragment : Fragment() {
         viewModel.successfulLogoutEvent.observe(viewLifecycleOwner, Observer {
             findNavController().popBackStack()
         })
+
+        aboutMeViewModel.state.observe(viewLifecycleOwner, Observer {
+            render(it)
+        })
     }
+
+    private fun render(state: AboutMeViewState) {
+
+        when (state.userData) {
+            is UserDataState.Loading -> {
+                // Implement loading state
+            }
+            is UserDataState.Error -> {
+
+            }
+            is UserDataState.Content -> {
+                fillUserData(state.userData.data)
+            }
+        }
+    }
+
+    private fun fillUserData(user: User) {
+        text_first_name.text = user.firstName
+        text_last_name.text = user.lastName
+    }
+
 
     private fun showProgressBar() {
         image_log_out.visibility = View.INVISIBLE

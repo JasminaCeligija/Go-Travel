@@ -160,7 +160,6 @@
                     style="@style/Widget.TextInputLayout.GradientLine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:hint="@string/book_now_enter_coupon_code">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -182,7 +181,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Apply"
+                    android:text="@string/book_now_apply"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/layout_promo_code" />

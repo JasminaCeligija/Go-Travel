@@ -153,7 +153,7 @@ class CreateAccountFragment : Fragment() {
 
         if(email.isValidEmail() && password == confirmPassword){
             clearFields()
-            viewModel.createUser(firstName, lastName, email, password, gender, birthDate)
+            viewModel.createUser(firstName, lastName, email, password, gender, birthDate, "user")
         }
     }
 

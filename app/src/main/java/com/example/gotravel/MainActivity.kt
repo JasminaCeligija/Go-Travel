@@ -11,9 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.example.gotravel.common.model.User
 import com.example.gotravel.data.AppPreferences
 import com.example.gotravel.data.DefaultUserRepository
 import com.example.gotravel.data.GoTravelDatabase
+import com.example.gotravel.presentation.auth.create_account.CreateAccountViewModel
+import com.example.gotravel.presentation.auth.create_account.CreateAccountViewModelFactory
 import com.example.gotravel.presentation.auth.login.LoginViewModel
 import com.example.gotravel.presentation.auth.login.LoginViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
+    private lateinit var createAccountViewModel: CreateAccountViewModel
+    private lateinit var createAccountViewModelFactory: CreateAccountViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.seeTripPlanFragment,
                 R.id.readReviewsFragment,
                 R.id.askAQuestionFragment,
-                R.id.bookNowFragment,
                 R.id.paymentFragment,
                 R.id.messageFragment,
                 R.id.bookNowFragment -> hideBottomNavigationBar()
@@ -71,7 +75,11 @@ class MainActivity : AppCompatActivity() {
         viewModelFactory = LoginViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
 
-        viewModel.isUserAuthenticated.observe(this, Observer {
+        createAccountViewModelFactory = CreateAccountViewModelFactory(repository)
+        createAccountViewModel = ViewModelProvider(this, createAccountViewModelFactory).get(CreateAccountViewModel::class.java)
+        createAccountViewModel.createUser("admin", "admin", "admin@gmail.com", "admin", "Male", "Jan 01, 1990", "admin")
+
+        viewModel.authenticatedUser.observe(this, Observer {
             hideOrShowMenuOptions(it)
         })
     }
@@ -99,10 +107,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun hideOrShowMenuOptions(isUserAuthenticated: Boolean) {
+    private fun hideOrShowMenuOptions(authenticatedUser: User?) {
 
         val menu = bottom_navigation.menu
-        if (isUserAuthenticated) {
+        if (authenticatedUser != null) {
             menu.findItem(R.id.my_profile).isVisible = true
             menu.findItem(R.id.saved_trips).isVisible = true
         } else {

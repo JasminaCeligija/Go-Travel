@@ -19,14 +19,11 @@ import com.example.gotravel.data.AppPreferences
 import com.example.gotravel.data.DefaultUserRepository
 import com.example.gotravel.data.GoTravelDatabase
 import com.example.gotravel.utils.closeKeyboard
+import com.example.gotravel.utils.isValidEmail
 import com.example.gotravel.utils.showSnackbar
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import kotlinx.android.synthetic.main.fragment_about_me.*
-import kotlinx.android.synthetic.main.fragment_about_me.button_select_birth_date
-import kotlinx.android.synthetic.main.fragment_about_me.edit_text_email
-import kotlinx.android.synthetic.main.fragment_about_me.edit_text_first_name
-import kotlinx.android.synthetic.main.fragment_about_me.edit_text_last_name
-import kotlinx.android.synthetic.main.fragment_about_me.spinner_gender
+
 class AboutMeFragment : Fragment() {
 
     private lateinit var viewModel: AboutMeViewModel
@@ -72,8 +69,17 @@ class AboutMeFragment : Fragment() {
     }
 
     private fun setObservers() {
+
         viewModel.state.observe(viewLifecycleOwner, Observer {
             render(it)
+        })
+
+        viewModel.successMessageEvent.observe(viewLifecycleOwner, Observer {
+            showSnackbar(it, about_me_parent_layout)
+        })
+
+        viewModel.errorMessageEvent.observe(viewLifecycleOwner, Observer {
+            showSnackbar(it, about_me_parent_layout)
         })
     }
 
@@ -90,7 +96,6 @@ class AboutMeFragment : Fragment() {
                 fillUserData(state.userData.data)
             }
         }
-
     }
 
     private fun fillUserData(user: User) {
@@ -146,7 +151,14 @@ class AboutMeFragment : Fragment() {
         }
     }
     private fun saveChanges() {
-        showSnackbar("Successfully updated profile.", about_me_parent_layout)
-        viewModel.saveChanges()
+        val firstName = edit_text_first_name.text.toString()
+        val lastName = edit_text_last_name.text.toString()
+        val email = edit_text_email.text.toString()
+        val gender = spinner_gender.selectedItem.toString()
+        val birthDate = button_select_birth_date.text.toString()
+
+        if(email.isValidEmail())
+        viewModel.saveChanges(firstName, lastName, email, gender, birthDate)
+        else showSnackbar("Invalid email address.", about_me_parent_layout)
     }
 }

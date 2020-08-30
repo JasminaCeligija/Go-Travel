@@ -96,7 +96,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_first_name_hint">
 
@@ -118,7 +117,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_last_name_hint">
 
@@ -140,7 +138,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_email_hint">
 
@@ -162,7 +159,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_password_hint">
 
@@ -186,7 +182,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="@string/create_account_confirm_password_hint">
 

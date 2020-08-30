@@ -29,6 +29,8 @@
     <string name="trip_details_trip_information">Short info about trip</string>
     <string name="trip_details_days">days</string>
     <string name="trip_details_button_text">Book now</string>
+    <string name="trip_details_login_confirm">Login</string>
+    <string name="trip_details_login_cancel">Cancel</string>
 
     <!-- See trip plan -->
     <string name="see_trip_plan_toolbar_title">Prepare for the activity</string>
@@ -118,11 +120,22 @@
     <string name="book_trip_toolbar_title">Book trip</string>
     <string name="book_now_num_of_people_hint">Enter number of people</string>
     <string name="book_now_enter_coupon_code">Enter coupon code</string>
+    <string name="book_now_apply">Apply</string>
     <string name="book_now_coupon_code_instruction">Make sure you apply the coupon before you book, and keep in mind that if you cancel a reservation, the coupon can’t be used again.</string>
     <string name="book_now_button_text">Next</string>
 
     <!--Payment -->
-
+    <string name="payment_toolbar_title">Payment summary</string>
+    <string name="payment_card_information">Card information</string>
+    <string name="payment_name_on_card">Name on Card <font color="#FF0000">*</font></string>
+    <string name="payment_credit_card_number">Credit card number <font color="#FF0000">*</font></string>
+    <string name="payment_expires">Expires: <font color="#FF0000">*</font></string>
+    <string name="payment_security_code">Security Code <font color="#FF0000">*</font></string>
+    <string name="payment_billing_address">Billing Address</string>
+    <string name="payment_street_address">Street Address <font color="#FF0000">*</font></string>
+    <string name="payment_city">City <font color="#F0000">*</font></string>
+    <string name="payment_zip_code">Zip Code <font color="#FF0000">*</font></string>
+    <string name="payment_button_text">Complete booking</string>
 
     <string-array name="SearchFilterOptions">
         <item>Popularity</item>
@@ -136,6 +149,33 @@
         <item>Man</item>
         <item>Woman</item>
         <item>Other</item>
+    </string-array>
+
+    <string-array name="MonthsOptions">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string-array name="YearsOptions">
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
     </string-array>
 
 </resources>

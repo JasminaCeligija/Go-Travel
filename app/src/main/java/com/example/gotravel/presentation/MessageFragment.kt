@@ -29,6 +29,4 @@ class MessageFragment : Fragment() {
             findNavController().navigate(MessageFragmentDirections.actionMessageFragmentToHome())
         }
     }
-
-
 }

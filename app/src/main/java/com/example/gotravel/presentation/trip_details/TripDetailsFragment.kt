@@ -1,5 +1,6 @@
 package com.example.gotravel.presentation.trip_details
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,13 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.gotravel.R
 import com.example.gotravel.common.model.Trip
+import com.example.gotravel.data.AppPreferences
+import com.example.gotravel.data.DefaultUserRepository
+import com.example.gotravel.data.GoTravelDatabase
 import com.example.gotravel.presentation.BookNowFragment
+import com.example.gotravel.presentation.auth.login.LoginNavigationState
+import com.example.gotravel.presentation.auth.login.LoginViewModel
+import com.example.gotravel.presentation.auth.login.LoginViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_trip_details.*
 import kotlin.math.abs
@@ -25,6 +32,8 @@ import kotlin.math.abs
 class TripDetailsFragment : Fragment() {
 
     private lateinit var viewModel: TripDetailsViewModel
+    private lateinit var loginViewModel: LoginViewModel
+    private lateinit var loginViewModelFactory: LoginViewModelFactory
     private lateinit var selectedTrip: Trip
 
     override fun onCreateView(
@@ -37,7 +46,7 @@ class TripDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (arguments?.getSerializable(TRIP_ARGUMENT) as? Trip)?.let {trip ->
+        (arguments?.getSerializable(TRIP_ARGUMENT) as? Trip)?.let { trip ->
             setUpTripData(trip)
         } ?: run {
             showErrorDialog()
@@ -45,8 +54,40 @@ class TripDetailsFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(TripDetailsViewModel::class.java)
 
+        initUI()
         setViewPager()
         setListeners()
+    }
+
+    private fun initUI() {
+
+        val sharedPreferences =
+            requireContext().getSharedPreferences("com.example.gotravel.pref", Context.MODE_PRIVATE)
+        val application = requireNotNull(this.activity).application
+        val dataSource = GoTravelDatabase.invoke(application).userDao()
+        val appPreferences = AppPreferences(sharedPreferences)
+        val repository = DefaultUserRepository(dataSource, appPreferences)
+
+        loginViewModelFactory = LoginViewModelFactory(repository)
+        loginViewModel = ViewModelProvider(
+            requireActivity(),
+            loginViewModelFactory
+        ).get(LoginViewModel::class.java)
+
+    }
+
+    private fun showLoginDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.log_in_title))
+            .setMessage(resources.getString(R.string.log_in_subtitle))
+
+            .setNegativeButton(resources.getString(R.string.trip_details_login_cancel)) { _, _ ->
+
+            }
+            .setPositiveButton(resources.getString(R.string.trip_details_login_confirm)) { _, _ ->
+                navigateToLoginFragment()
+            }
+            .show()
     }
 
     private fun setUpTripData(trip: Trip) {
@@ -55,7 +96,8 @@ class TripDetailsFragment : Fragment() {
         text_start_date.text = trip.startDate
         text_end_date.text = trip.endDate
         text_num_of_days.text = trip.numOfDays
-        text_price.text = String.format(resources.getString(R.string.trip_details_price), trip.price)
+        text_price.text =
+            String.format(resources.getString(R.string.trip_details_price), trip.price)
         text_description.text = trip.description
     }
 
@@ -93,12 +135,8 @@ class TripDetailsFragment : Fragment() {
         }
 
         button_book_now.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_tripDetailsFragment_to_bookNowFragment,
-                BookNowFragment.createBundle(
-                    selectedTrip
-                )
-            )
+            if (loginViewModel.authenticatedUser.value != null) navigateToBookTripFragment()
+            else showLoginDialog()
         }
     }
 
@@ -128,6 +166,19 @@ class TripDetailsFragment : Fragment() {
         }
 
         view_pager_trip_images.setPageTransformer(transformer)
+    }
+
+    private fun navigateToBookTripFragment() {
+        findNavController().navigate(
+            R.id.action_tripDetailsFragment_to_bookNowFragment,
+            BookNowFragment.createBundle(
+                selectedTrip
+            )
+        )
+    }
+
+    private fun navigateToLoginFragment() {
+        findNavController().navigate(TripDetailsFragmentDirections.actionTripDetailsFragmentToLogin(LoginNavigationState.NavigatedFromTripDetails))
     }
 
     companion object {

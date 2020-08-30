@@ -92,8 +92,14 @@ class BookNowFragment : Fragment() {
         }
 
         button_next.setOnClickListener {
-            findNavController().navigate(BookNowFragmentDirections.actionBookNowFragmentToPaymentFragment())
+            bookTrip()
         }
+    }
+
+    private fun bookTrip() {
+        val totalPrice = text_price.text.toString()
+        val numOfPeople = edit_text_num_of_people.text.toString()
+        findNavController().navigate(BookNowFragmentDirections.actionBookNowFragmentToPaymentFragment(trip, totalPrice, numOfPeople))
     }
 
     private fun setObservers() {
